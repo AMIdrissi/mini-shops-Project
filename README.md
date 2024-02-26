@@ -12,4 +12,6 @@ to restart the container
 
 ## make stop
 
-to stop the container
+to stop the container# make start
+
+check <http://localhost:5173/>
