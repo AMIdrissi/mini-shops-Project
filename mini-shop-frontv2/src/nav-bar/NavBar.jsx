@@ -6,12 +6,12 @@ import Logo from "../logo/Logo";
 
 function NavBar() {
   return (
-    <div className="flex h-20 bg-[#d4d3cf] font-exo2 font-[500] text-[18px] justify-between">
+    <div className="flex h-20 bg-[#d4d3cf] font-exo2 font-[500] text-[18px] justify-between border-b-2 border-[#a2a1a680]">
       <Logo />
       <div className="flex absolute self-center align-middle left-0 right-0 ml-[30%] mr-[30%] h-20">
-        <ButtonForMenu name={"categories"}/>
-        <NavBarButton name={"home"}/>
-        <ButtonForMenu name={"other"}/>
+        <ButtonForMenu name={"categories"} />
+        <NavBarButton name={"home"} />
+        <ButtonForMenu name={"other"} />
       </div>
       <div className="flex items-center mr-5">
         {/* <div className="flex items-center"> */}
