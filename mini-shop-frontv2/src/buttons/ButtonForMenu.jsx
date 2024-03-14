@@ -30,21 +30,35 @@ export default function ButtonForMenu({ name, categories }) {
     >
       <motion.button
         whileHover={{
-          backgroundColor: isOpen ? "#432d27" : "#b5927b",
+          boxShadow: "0px 0px 10px rgb(185 ,28 ,28)",
+          border: "3px solid rgb(185 ,28 ,28)",
+          backgroundColor: "#ffffffdd",
           scale: 1.05,
         }}
         whileTap={{ scale: 0.97 }}
         onClick={() => setIsOpen(!isOpen)}
         className={
           isOpen
-            ? "flex items-center justify-center bg-[#432d27] text-[#D7B7A3] px-6 py-2 font-customFont text-3xl rounded-3xl m-2 min-w-40"
-            : "flex items-center justify-center bg-[#D7B7A3] text-white px-6 py-2 font-customFont text-3xl rounded-3xl m-2 min-w-40"
+            ? "flex items-center border-[3px] border-red-700 justify-center bg-[#ffffffdd] text-red-700 px-6 py-2 font-customFont text-3xl rounded-3xl m-2 min-w-40"
+            : "flex items-center border-[3px] border-[#eae7e7] justify-center bg-[#eae7e7] text-red-700 px-6 py-2 font-customFont text-3xl rounded-3xl m-2 min-w-40"
         }
-        style={{ backgroundColor: isOpen ? "#432d27" : "#D7B7A3" }}
+        style={{
+          backgroundColor: isOpen ? "#ffffffdd" : "#eae7e7",
+          boxShadow: isOpen ? "0px 0px 10px rgb(185 ,28 ,28)" : "0",
+          border: isOpen ? "3px solid rgb(185 ,28 ,28)" : "3px solid #eae7e7",
+        }}
+        initial={{ translateY: -100, opacity: 0 }}
+        animate={{ translateY: 0, opacity: 1 }}
+        transition={{
+          delay: 0.2,
+          duration: 0.2,
+          type: "spring",
+          damping: 10,
+        }}
       >
         {name ? name : "Categories"}
         <motion.div
-          className={isOpen ? "ml-2 fill-[#D7B7A3]" : "ml-2 fill-white"}
+          className={"ml-2 fill-red-700"}
           variants={{
             open: { rotate: 180 },
             closed: { rotate: 0 },
@@ -79,13 +93,13 @@ export default function ButtonForMenu({ name, categories }) {
           },
         }}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
-        className="absolute min-w-40 mt-[70px] bg-[#eae7e7bb] p-1 px-[6px] m-2 rounded-xl child:text-[#432d27] child:text-xl child:p-1 child:rounded-[8px]"
+        className="absolute min-w-40 mt-[70px] bg-[#ffffffee] p-1 px-[6px] m-2 rounded-xl child:text-gray-700 child:text-xl child:p-1 child:rounded-[8px]"
       >
         <motion.li
           variants={itemVariants}
           whileHover={{
             scale: 1.05,
-            backgroundColor: "#e2d8d9",
+            backgroundColor: "#ededed",
             borderRadius: "8px",
             cursor: "pointer",
           }}
@@ -104,7 +118,7 @@ export default function ButtonForMenu({ name, categories }) {
           variants={itemVariants}
           whileHover={{
             scale: 1.05,
-            backgroundColor: "#e2d8d9",
+            backgroundColor: "#ededed",
             borderRadius: "8px",
             cursor: "pointer",
           }}
@@ -123,7 +137,7 @@ export default function ButtonForMenu({ name, categories }) {
           variants={itemVariants}
           whileHover={{
             scale: 1.05,
-            backgroundColor: "#e2d8d9",
+            backgroundColor: "#ededed",
             borderRadius: "8px",
             cursor: "pointer",
           }}
@@ -142,7 +156,7 @@ export default function ButtonForMenu({ name, categories }) {
           variants={itemVariants}
           whileHover={{
             scale: 1.05,
-            backgroundColor: "#e2d8d9",
+            backgroundColor: "#ededed",
             borderRadius: "8px",
             cursor: "pointer",
           }}
@@ -161,7 +175,7 @@ export default function ButtonForMenu({ name, categories }) {
           variants={itemVariants}
           whileHover={{
             scale: 1.05,
-            backgroundColor: "#e2d8d9",
+            backgroundColor: "#ededed",
             borderRadius: "8px",
             cursor: "pointer",
           }}
