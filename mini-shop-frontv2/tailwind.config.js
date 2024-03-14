@@ -7,7 +7,8 @@ export default {
         customShadow: "0px 3px 0px 0px rgb(7 ,89 ,133)",
       },
       fontFamily: {
-        exo2: "Exo2, sans-serif",
+        customFont: "Play, sans-serif",
+        jp3d: "Aoboshi One, serif",
       },
     },
   },

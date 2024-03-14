@@ -1,18 +1,29 @@
 import { useEffect } from "react";
+import CoffeeBean from "../icons/CoffeeBean";
+import { motion } from "framer-motion";
 
 function Logo() {
+  const logoHover = {
+    hover: {
+      fill: "#b5927b",
+      // padding: "0px 2px",
+      rotate: "360deg",
+      scale: 1.1,
+    },
+  };
+
   return (
     <div className="m-1 ml-3 flex items-center">
-      <h1 className="text-5xl font-sans font-bold text-[#28282a]">
-        <span
-          className="hover:bg-[#d4d3cf] font-serif font-bold hover:text-[#4a4c50] px-1.5 m-1 rounded-md hover:border-[3px]
-         hover:border-[#4a4c50] hover:shadow-md shadow-lg shadow-gray-700/80 ease-in-out duration-300
-         bg-[#4a4c50] text-[#d4d3cf] border-[3px] border-[#4a4c50] cursor-pointer tracking-tighter"
-        >
-          アミ
+      <motion.h1
+        className="text-6xl font-sans font-bold text-[#432d27] flex items-center "
+        whileHover="hover"
+      >
+        C
+        <span className="flex w-9 justify-center p-px fill-black">
+          <CoffeeBean hoverVariant={logoHover} />
         </span>
-        shop
-      </h1>
+        ffee & chill
+      </motion.h1>
     </div>
   );
 }

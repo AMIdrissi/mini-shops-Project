@@ -4,6 +4,7 @@ import "./index.css";
 import DropDownMenu from "./dropDownMenu/DropDownMenu";
 import NButton from "./buttons/NavBarButton";
 import NavBar from "./nav-bar/NavBar";
+import ButtonForMenu from "./buttons/ButtonForMenu";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
