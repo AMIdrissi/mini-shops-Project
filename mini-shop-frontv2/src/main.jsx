@@ -3,12 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import DropDownMenu from "./dropDownMenu/DropDownMenu";
 import NButton from "./buttons/NavBarButton";
-import NavBar from "./nav-bar/NavBar";
+import RootWebsite from "./websiteRoot/Root";
 import ButtonForMenu from "./buttons/ButtonForMenu";
 import TopbgImg from "./panel/topBackGroundImg";
+import FirstLayer from "./layers/firstLayer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <NavBar />
+    <RootWebsite />
   </React.StrictMode>
 );
