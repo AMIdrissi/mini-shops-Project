@@ -1,3 +1,5 @@
+/* will be deleted soon*/
+
 /**
  * @param {string} clicked
  * @param {Map} sectionMap

@@ -4,16 +4,12 @@ import FoodChoiceContainer from "../cardContainers/foodChoiceContainer";
 
 function TopbgImg() {
   const [h, setH] = useState(0);
-  const [trigger, setTrigger] = useState(false);
   const { scrollYProgress } = useScroll();
   const scale1 = useTransform(scrollYProgress, [0, 1], [1, 2]);
   useEffect(() => {
     setH(document.getElementById("bgImg").offsetHeight * 0.95);
   }, []);
   useEffect(() => {
-    // setTimeout(() => {
-    //   setTrigger(!trigger);
-    // }, 200);
     window.addEventListener("resize", () => {
       setH(document.getElementById("bgImg").offsetHeight * 0.95);
     });
@@ -33,6 +29,7 @@ function TopbgImg() {
         initial={{ scale: 1 }}
         style={{ scale: scale1, originY: 0, translateY: "-5%" }}
       />
+      {/* THIS IS WHERE THE REST OF THE PAGE IS GONNA GO */}
       <div style={{ marginTop: h }}>
         <FoodChoiceContainer />
       </div>
