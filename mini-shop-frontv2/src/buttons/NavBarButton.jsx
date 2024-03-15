@@ -25,11 +25,10 @@ function NButton({ name }) {
         initial={{ translateY: -100, opacity: 0 }}
         animate={{ translateY: 0, opacity: 1 }}
         transition={{
-          delay: 0.1,
+          delay: 0,
           duration: 0.2,
-          type: "spring",
-          damping: 10,
-          ease: "easeInOut",
+          type: "tween",
+          damping: 20,
         }}
       >
         {name ? name : "AMIdrissi"}

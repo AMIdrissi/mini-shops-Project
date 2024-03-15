@@ -1,15 +1,12 @@
-import ButtonForMenu from "../buttons/ButtonForMenu";
-import NavBarButton from "../buttons/NavBarButton";
-import UserIcon from "../icons/UserIcon";
-import Cart from "../icons/Cart";
-import Logo from "../logo/Logo";
-import LoginThing from "../buttons/Login";
-import Cappuccino from "../panel/CappuccinoPanel";
-import TopbgImg from "../panel/RootComponent";
+import LoginThing from "../../buttons/Login";
+import Logo from "../../logo/Logo";
+import TopbgImg from "../../panel/HeaderImage.jsx";
+import NButton from "../../buttons/NavBarButton.jsx";
+import ButtonForMenu from "../../buttons/ButtonForMenu";
 
-function NavBar() {
+function NavBar_() {
   return (
-    <div>
+    <div className={"h-[864px] bg-white"}>
       <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between items-center">
         <h1></h1>
         <div className="absolute top-0 left-0 bottom-0 w-full z-0">
@@ -17,7 +14,7 @@ function NavBar() {
         </div>
         <div className="flex items-center mr-9 my-12 z-[1]">
           <LoginThing />
-          <NavBarButton name={"home"} />
+          <NButton name={"home"} />
           <ButtonForMenu name={"categories"} />
 
           {/* <div className="flex items-center"> */}
@@ -35,4 +32,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBar_;

@@ -4,11 +4,13 @@ function FoodChoice({ icon, title, desc }) {
   return (
     <motion.div
       className="flex flex-col items-center max-w-[296px] text-center py-2 px-[3px] border-[2px] border-[#00000000] rounded-2xl"
-      initial={{ scale: 1.2 }}
+      initial={{ scale: 1.4 }}
+      animate={{ translateY: 40 }}
       whileHover={{
-        scale: 1.25,
+        scale: 1.45,
         boxShadow: "0px 0px 20px black",
       }}
+      whileInView={{ translateY: 40 }}
     >
       {icon}
       <motion.p
