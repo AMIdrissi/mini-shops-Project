@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import FoodChoiceContainer from "../cardContainers/foodChoiceContainer";
 
 function TopbgImg() {
   const [h, setH] = useState(0);
@@ -32,16 +33,11 @@ function TopbgImg() {
         initial={{ scale: 1 }}
         style={{ scale: scale1, originY: 0, translateY: "-5%" }}
       />
-      <div style={{ marginTop: h }} className="h-[2000px] flex justify-around">
-        <div>
-          <h1 className="text-4xl">hello</h1>
-        </div>
-        <div>
-          <h1 className="text-4xl">hello</h1>
-        </div>
-        <div>
-          <h1 className="text-4xl">hello</h1>
-        </div>
+      <div style={{ marginTop: h }}>
+        <FoodChoiceContainer />
+      </div>
+      <div className="h-[2000px]">
+        <p>d</p>
       </div>
     </div>
   );
