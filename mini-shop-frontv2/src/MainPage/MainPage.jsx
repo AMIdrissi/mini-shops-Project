@@ -8,10 +8,10 @@ import Cappuccino from "../panel/CappuccinoPanel";
 import TopbgImg from "../panel/HeaderImage";
 import { useEffect, useRef, useState } from "react";
 import { useInView, useScroll, useTransform } from "framer-motion";
-import FoodChoiceContainer from "../cardContainers/foodChoiceContainer";
-import CertifiedTajine from "../icons/certifiedTajine";
-import DishDescription from "../cardContainers/dishDescription";
-import NavBar_ from "./NavBar/navBar";
+import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
+import CertifiedTajine from "../icons/CertifiedTajine";
+import DishDescription from "../cardContainers/DishDescription";
+import NavBar_ from "./NavBar/NavBar";
 import FID from "../cardContainers/FeshIngredientsDesc";
 
 function MainPage() {

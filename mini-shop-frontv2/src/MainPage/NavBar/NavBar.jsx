@@ -1,8 +1,8 @@
-import LoginThing from "../../buttons/Login";
-import Logo from "../../logo/Logo";
+import LoginThing from "../../buttons/Login.jsx";
+import Logo from "../../logo/Logo.jsx";
 import TopbgImg from "../../panel/HeaderImage.jsx";
 import NButton from "../../buttons/NavBarButton.jsx";
-import ButtonForMenu from "../../buttons/ButtonForMenu";
+import ButtonForMenu from "../../buttons/ButtonForMenu.jsx";
 
 function NavBar_() {
   return (
@@ -16,16 +16,9 @@ function NavBar_() {
           <LoginThing />
           <NButton name={"home"} />
           <ButtonForMenu name={"categories"} />
-
-          {/* <div className="flex items-center"> */}
-          {/* </div> */}
-          {/* <div className="flex items-center"> */}
-          {/* <Cart /> */}
-          {/* </div> */}
         </div>
       </div>
       <div className="mt-[7%] scale-125 flex justify-center">
-        {/* <Cappuccino timeDiff={0} /> */}
         <Logo />
       </div>
     </div>

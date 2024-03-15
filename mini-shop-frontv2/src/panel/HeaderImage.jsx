@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import FoodChoiceContainer from "../cardContainers/foodChoiceContainer";
+import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
 
 function TopbgImg() {
   const [h, setH] = useState(0);
