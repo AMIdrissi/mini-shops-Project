@@ -31,7 +31,7 @@ function MainPage() {
   });
   const RegRef = useRef(null);
   const whenInViewReg = useInView(RegRef, {
-    amount: 0.25,
+    amount: 0.33,
     once: true,
   });
   // const [h, setH] = useState(0);
@@ -78,7 +78,7 @@ function MainPage() {
       </div>
       <div className="bg-white h-[864px] grid grid-cols-2" ref={RegRef}>
         <DeliverToYou whenInView={whenInViewReg} />
-        <RegisterPanel whenInViewReg={whenInViewReg}/>
+        <RegisterPanel whenInViewReg={whenInViewReg} />
       </div>
     </div>
   );

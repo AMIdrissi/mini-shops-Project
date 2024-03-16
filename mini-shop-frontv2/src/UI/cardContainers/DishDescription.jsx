@@ -46,10 +46,9 @@ function DishDescription({ reference, whenInView }) {
         }}
       >
         <p className="text-3xl font-customFont pt-12 leading-[1.35]">
-          At our business, we take pride in crafting delectable dishes that
-          tantalize the taste buds and warm the soul. Each plate showcases a
-          symphony of flavors, meticulously prepared using the freshest
-          ingredients.
+          We take pride in crafting delectable dishes that tantalize the taste
+          buds and warm the soul. Each plate showcases a symphony of flavors,
+          meticulously prepared using the freshest ingredients.
         </p>
         <p className="text-3xl font-customFont pb-7 pt-5 leading-[1.35]">
           With every meal, we strive to deliver an unforgettable dining
