@@ -10,7 +10,6 @@ function FoodChoice({ icon, title, desc }) {
         scale: 1.45,
         boxShadow: "0px 0px 20px black",
       }}
-      whileInView={{ translateY: 40 }}
     >
       {icon}
       <motion.p

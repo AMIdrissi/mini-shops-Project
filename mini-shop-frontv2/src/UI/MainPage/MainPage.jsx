@@ -13,6 +13,10 @@ import CertifiedTajine from "../icons/CertifiedTajine";
 import DishDescription from "../cardContainers/DishDescription";
 import NavBar_ from "./NavBar/NavBar";
 import FID from "../cardContainers/FeshIngredientsDesc";
+import ScooterIcon from "../icons/ScooterIcon";
+import NButton from "../buttons/NavBarButton";
+import DeliverToYou from "../panel/DeliverToYou";
+import RegisterPanel from "../panel/RegisterPanel";
 
 function MainPage() {
   const ref = useRef(null);
@@ -23,6 +27,11 @@ function MainPage() {
   const dishDesxRef = useRef(null);
   const whenInViewDishDesc = useInView(dishDesxRef, {
     amount: 0.5,
+    once: true,
+  });
+  const RegRef = useRef(null);
+  const whenInViewReg = useInView(RegRef, {
+    amount: 0.25,
     once: true,
   });
   // const [h, setH] = useState(0);
@@ -67,7 +76,10 @@ function MainPage() {
           <FID whenInView={whenInViewDishDesc} />
         </div>
       </div>
-      <div className="bg-white"></div>
+      <div className="bg-white h-[864px] grid grid-cols-2" ref={RegRef}>
+        <DeliverToYou whenInView={whenInViewReg} />
+        <RegisterPanel whenInViewReg={whenInViewReg}/>
+      </div>
     </div>
   );
 }
