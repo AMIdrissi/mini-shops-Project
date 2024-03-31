@@ -50,10 +50,10 @@ export default function ButtonForMenu({ name, categories }) {
         initial={{ translateY: -100, opacity: 0 }}
         animate={{ translateY: 0, opacity: 1 }}
         transition={{
-          delay: 0.2,
+          delay: 0,
           duration: 0.2,
-          type: "spring",
-          damping: 10,
+          type: "tween",
+          damping: 20,
         }}
       >
         {name ? name : "Categories"}

@@ -1,4 +1,3 @@
 #!/bin/bash
-npm install -D tailwindcss postcss autoprefixer
-npm install framer-motion
+npm install
 npm run dev
