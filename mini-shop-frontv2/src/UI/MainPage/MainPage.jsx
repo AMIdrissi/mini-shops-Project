@@ -59,7 +59,7 @@ function MainPage() {
         className="h-[864px] bg-[#00000075] border-t-4 border-b-4 border-red-700 grid grid-cols-2"
         ref={dishDesxRef}
       >
-        <div className="flex justify-center overflow-y-scroll overflow-x-hidden">
+        <div className="flex justify-center overflow-y-auto overflow-x-hidden">
           <DishDescription whenInView={whenInViewDishDesc} />
         </div>
         <div className="grid grid-rows-2">

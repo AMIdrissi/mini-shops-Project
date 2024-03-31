@@ -38,7 +38,7 @@ function DishDescription({ reference, whenInView }) {
         }}
       ></div>
       <div
-        className="ml-36 text-white mr-14 overflow-y-scroll"
+        className="ml-36 text-white mr-14 overflow-y-auto"
         style={{
           transition: "all 1s ease 0.7s",
           opacity: whenInView ? 1 : 0,
