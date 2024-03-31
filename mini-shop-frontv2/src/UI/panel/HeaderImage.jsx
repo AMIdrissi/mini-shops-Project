@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
+import mainImage from "../../assets/75264431.png";
 
 function TopbgImg() {
   const [h, setH] = useState(0);
@@ -22,7 +22,7 @@ function TopbgImg() {
   return (
     <div className="h-[864px] overflow-y-hidden">
       <motion.img
-        src="https://cdn.discordapp.com/attachments/1091841712445477018/1217936354026192906/75264431.png?ex=6605d69e&is=65f3619e&hm=188bd5056255d8d5325dd56b9f962b14a5c4810cb0262face5926b3fc0c0121a&"
+        src={mainImage}
         alt=""
         id="bgImg"
         className="absolute top-0 w-full h-[864px] object-cover max-h-[864px]"
