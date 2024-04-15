@@ -11,9 +11,11 @@ import TagineIcon from "./UI/icons/TajineIcon";
 import FastFoodIcon from "./UI/icons/FastFoodIcon";
 import DessertIcon from "./UI/icons/DessertIcon";
 import FoodChoiceContainer from "./UI/cardContainers/FoodChoiceContainer";
+import FoodMenu from "./UI/menu/FoodMenu";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MainPage />
+    
+    <FoodMenu />
   </React.StrictMode>
 );
