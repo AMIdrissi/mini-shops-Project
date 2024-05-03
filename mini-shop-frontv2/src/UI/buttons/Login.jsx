@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { UserContext, useUserContext } from "../../UserContext";
 
 function LoginThing() {
+  const user = useUserContext()
+
   return (
     <motion.div
       className="flex py-[2px] items-center border-b-2 border-b-[#fffffd00] ease-in-out duration-200 hover:cursor-pointer rounded-xl pl-[6px]"
@@ -37,9 +41,15 @@ function LoginThing() {
           strokeLinecap="round"
         />
       </svg>
-      <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
-        Log in
-      </p>
+      {user.isConnected ? (
+        <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
+          AMIdrissi
+        </p>
+      ) : (
+        <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
+          Log in
+        </p>
+      )}
     </motion.div>
   );
 }

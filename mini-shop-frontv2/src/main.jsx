@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import DropDownMenu from "./UI/dropDownMenu/DropDownMenu";
@@ -11,9 +11,13 @@ import TagineIcon from "./UI/icons/TajineIcon";
 import FastFoodIcon from "./UI/icons/FastFoodIcon";
 import DessertIcon from "./UI/icons/DessertIcon";
 import FoodChoiceContainer from "./UI/cardContainers/FoodChoiceContainer";
+import ProfilPage from "./UI/ProfilePage/ProfilePage";
+import { UserContext } from "./UserContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MainPage />
+    <UserContext.Provider value={{ isConnected: true }}>
+      <ProfilPage />
+    </UserContext.Provider>
   </React.StrictMode>
 );
