@@ -72,9 +72,9 @@ function UserInfos({ editOn, user }) {
     );
   } else {
     return (
-      <div className="my-2">
+      <div className="my-2 text-[#232227]">
         <div>
-          <h4 className="mx-1 font-customFont text-lg">{"UserName"}</h4>
+          <h4 className="mx-1 font-customFont text-xl">{"UserName"}</h4>
           <motion.p
             className={inputStyle("2xl")}
             initial={{ opacity: 0, scale: 0.5 }}
@@ -166,10 +166,10 @@ function ProfileCard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mx-32 mt-20 mb-10">
+    <div className="flex flex-col items-center justify-center mx-32 mt-14 mb-10 ">
       <div className="flex flex-col items-center justify-center ">
         <div
-          className={`flex flex-col items-center justify-center border-4 rounded-tl-xl rounded-tr-xl ${
+          className={`flex flex-col items-center justify-center border-4 rounded-tl-xl rounded-tr-xl bg-[#dcd7d7a1] ${
             editOn ? "rounded-xl" : "border-b-0"
           }`}
         >
@@ -205,14 +205,14 @@ function ProfileCard() {
           ""
         ) : (
           <motion.div
-            className="border-[#e5e7eb] w-full h-full border-b-4 border-x-4 bg-red-600 rounded-bl-xl rounded-br-xl p-2"
+            className="border-[#e5e7eb] w-full h-full border-b-4 border-x-4 bg-[#e81313c4]  rounded-bl-xl rounded-br-xl p-2"
             initial="rest"
             whileHover="hover"
             animate="rest"
           >
             <motion.button
               type="button"
-              className=" w-full h-full p-2 font-customFont text-2xl text-white flex items-center justify-center"
+              className="font-bold w-full h-full p-2 font-customFont text-2xl text-white flex items-center justify-center pl-[24px]"
               variants={delTxtAn}
             >
               Delete Account{" "}
