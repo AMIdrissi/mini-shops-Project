@@ -181,7 +181,7 @@ function ProfileCard() {
             {" "}
             {/* Nice */}
             <img
-              src="https://cdn.discordapp.com/attachments/1092253246812332112/1171622233752490024/image.png?ex=6634e67c&is=663394fc&hm=23059f74655ae4082893ebbc42caec09f882ce83c287d4c1a7139f6049330a94&"
+              src="https://i.pinimg.com/736x/4b/71/b8/4b71b8483fa2f5955f420ef459936ee9.jpg"
               alt="smilry face"
               className="border-4 border-red-700 rounded-full h-36 w-36 z-[1]"
             />

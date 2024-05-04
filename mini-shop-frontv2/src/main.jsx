@@ -13,11 +13,13 @@ import DessertIcon from "./UI/icons/DessertIcon";
 import FoodChoiceContainer from "./UI/cardContainers/FoodChoiceContainer";
 import ProfilPage from "./UI/ProfilePage/ProfilePage";
 import { UserContext } from "./UserContext";
+import FoodMenu from "./UI/MenuPage/FoodMenu";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext.Provider value={{ isConnected: true }}>
-      <ProfilPage />
+      {/* <ProfilPage /> */}
+      <FoodMenu />
     </UserContext.Provider>
   </React.StrictMode>
 );

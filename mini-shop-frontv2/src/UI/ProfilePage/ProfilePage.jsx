@@ -9,24 +9,7 @@ import ProfileCard from "./ProfileCard/ProfileCard";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Cart from "../icons/Cart";
 import OrderContainer from "./Orders/OrderContainer";
-
-function TopPart({ imageUrl }) {
-  const [h, setH] = useState(0);
-  const { scrollYProgress } = useScroll();
-  const scale1 = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  return (
-    <div className="h-[600px] overflow-y-hidden">
-      <motion.img
-        src={imageUrl ? imageUrl : mainImage}
-        alt=""
-        id="bgImg"
-        className="absolute top-0 w-full h-[620px] object-cover max-h-[864px]"
-        initial={{ scale: 1 }}
-        style={{ scale: scale1, translateY: "-3%" }}
-      />
-    </div>
-  );
-}
+import TopPart from "./TopPart";
 
 function ProfilPage() {
   return (
@@ -44,6 +27,7 @@ function ProfilPage() {
           <div className="flex items-center mr-9 my-12 z-[1]">
             <LoginThing />
             <NButton name={"home"} />
+            <NButton name={"Our delicacies"} />
             <ButtonForMenu name={"categories"} />
           </div>
         </div>
