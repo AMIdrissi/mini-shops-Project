@@ -2,6 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { useInView, useScroll, useTransform } from "framer-motion";
 import CertifiedTajine from "../icons/CertifiedTajine";
 import DishDescription from "../cardContainers/DishDescription";
+import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
+import FID from "../cardContainers/FeshIngredientsDesc";
+import NavBar_ from "./NavBar/NavBar";
+import RegisterPanel from "../panel/RegisterPanel";
+import DeliverToYou from "../panel/DeliverToYou";
 
 function MainPage() {
   const ref = useRef(null);

@@ -2,6 +2,7 @@ import { useInView } from "framer-motion";
 import FoodChoice from "../panel/FoodChoice";
 import DessertIcon from "../icons/DessertIcon";
 import FastFoodIcon from "../icons/FastFoodIcon";
+import TagineIcon from "../icons/TajineIcon";
 
 function FoodChoiceContainer({ reference, whenInView }) {
   return (

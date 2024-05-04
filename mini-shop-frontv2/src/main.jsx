@@ -18,7 +18,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext.Provider value={{ isConnected: true }}>
       {/* <ProfilPage /> */}
-      <FoodMenu />
+      {/* <FoodMenu /> */}
+      <MainPage/>
     </UserContext.Provider>
   </React.StrictMode>
 );

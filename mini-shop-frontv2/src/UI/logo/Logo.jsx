@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import ForkIcon from "../../icons/ForkIcon";
+import ForkIcon from "../icons/ForkIcon";
 import { motion } from "framer-motion";
 
 function Logo() {

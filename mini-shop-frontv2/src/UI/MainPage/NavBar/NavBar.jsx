@@ -2,6 +2,7 @@ import ButtonForMenu from "../../buttons/ButtonForMenu.jsx";
 import LoginThing from "../../buttons/Login.jsx";
 import NButton from "../../buttons/NavBarButton.jsx";
 import TopbgImg from "../../panel/HeaderImage.jsx";
+import Logo from "../../logo/Logo.jsx";
 
 function NavBar_({ bannerImg }) {
   return (

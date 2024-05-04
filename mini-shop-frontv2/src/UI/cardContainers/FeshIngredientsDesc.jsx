@@ -1,6 +1,7 @@
 // i didn't know what to name it
 
-import NButton from "../../buttons/NavBarButton";
+import NButton from "../buttons/NavBarButton";
+
 
 function FID({ whenInView }) {
   return (
