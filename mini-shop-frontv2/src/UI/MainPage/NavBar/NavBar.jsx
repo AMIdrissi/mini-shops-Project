@@ -1,10 +1,9 @@
-import LoginThing from "../../buttons/Login.jsx";
-import Logo from "../../logo/Logo.jsx";
-import TopbgImg from "../../panel/HeaderImage.jsx";
-import NButton from "../../buttons/NavBarButton.jsx";
 import ButtonForMenu from "../../buttons/ButtonForMenu.jsx";
+import LoginThing from "../../buttons/Login.jsx";
+import NButton from "../../buttons/NavBarButton.jsx";
+import TopbgImg from "../../panel/HeaderImage.jsx";
 
-function NavBar_({bannerImg}) {
+function NavBar_({ bannerImg }) {
   return (
     <div className={"h-[864px] bg-white"}>
       <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between items-center">

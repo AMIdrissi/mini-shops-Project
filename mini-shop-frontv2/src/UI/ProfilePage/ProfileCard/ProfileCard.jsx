@@ -1,6 +1,7 @@
 import { motion, transform } from "framer-motion";
 import { useState } from "react";
 import NButton from "../../buttons/NavBarButton";
+import InputField from "../../Inputs/InputField";
 
 const inputStyle = (textSize) => {
   return (
@@ -15,28 +16,6 @@ const inputStyleFunction = (delay, positive) => {
     transition: "all 0.5s ease " + (delay - 0.1) + "s",
   };
 };
-
-function InputField({ placeHolder, value, type }) {
-  return (
-    <div>
-      <h4 className="mx-1 font-customFont text-lg">{placeHolder}</h4>
-      <motion.input
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.8,
-          ease: [0, 0.71, 0.2, 1.01],
-        }}
-        className={inputStyle("2xl")}
-        type={type}
-        required
-        placeholder={placeHolder}
-        value={value}
-        style={inputStyleFunction(0, false)}
-      />
-    </div>
-  );
-}
 
 function UserInfos({ editOn, user }) {
   if (editOn) {

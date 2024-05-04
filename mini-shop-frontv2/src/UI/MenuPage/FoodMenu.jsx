@@ -1,81 +1,146 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NButton from "../buttons/NavBarButton";
-import { delay, motion } from "framer-motion";
+import { delay, filterProps, motion } from "framer-motion";
 import FoodCard from "./FoodCard";
 import LoginThing from "../buttons/Login";
 import ButtonForMenu from "../buttons/ButtonForMenu";
 import UserName from "../ProfilePage/userName/UserName";
 import TopPart from "../ProfilePage/TopPart";
+import InputField from "../Inputs/InputField";
 
 function FoodMenu() {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
   // Define card data
   const cards = [
     {
       id: 1,
       name: "Pizza Family",
-      price: "70dh",
+      price: 70,
       promotion: "20% off",
       image: "src/UI/icons/pizza.jpg",
     },
     {
       id: 2,
       name: "Burger",
-      price: "50dh",
+      price: 50,
       promotion: "10% off",
       image: "src/UI/icons/recette-burger-maison.jpg",
     },
     {
       id: 3,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 4,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 5,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 6,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 7,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 8,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
     {
-      id: 3,
+      id: 9,
       name: "Sushi",
-      price: "$100",
+      price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
   ];
+  const [fCards, setFCards] = useState(cards);
+  const searchRef = useRef();
+  const maxPRef = useRef();
+  const minPRef = useRef();
+  const [priceVal, setPriceVal] = useState({
+    min: -1,
+    max: Number.MAX_SAFE_INTEGER,
+  });
+  const [searchQuery, setSearchQuery] = useState({
+    query: "",
+  });
+
+  const handleSearch = (cardObj, queryObj, priceObj) => {
+    if (
+      cardObj.name.includes(queryObj.query) &&
+      cardObj.price >= priceObj.min &&
+      cardObj.price <= priceObj.max
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    searchRef.current.addEventListener("keyup", (e) => {
+      const tempSearch = {
+        query: e.currentTarget.value ? e.currentTarget.value : "",
+      };
+      setSearchQuery(tempSearch);
+    });
+  }, [priceVal]);
+
+  useEffect(() => {
+    const numRegEx = /^[0-9]*$/;
+    minPRef.current.addEventListener("keyup", (e) => {
+      if (numRegEx.test(e.target.value)) {
+        setPriceVal({
+          max: priceVal.max,
+          min: e.currentTarget.value ? parseInt(e.currentTarget.value) : -1,
+        });
+      } else {
+        e.target.value = "";
+      }
+    });
+
+    maxPRef.current.addEventListener("keyup", (e) => {
+      if (numRegEx.test(e.target.value)) {
+        setPriceVal({
+          min: priceVal.min,
+          max: e.currentTarget.value
+            ? parseInt(e.currentTarget.value)
+            : Number.MAX_SAFE_INTEGER,
+        });
+      } else {
+        e.target.value = "";
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const filteredCards = cards.filter((card) => {
+      return handleSearch(card, searchQuery, priceVal);
+    });
+    setFCards(filteredCards);
+  }, [searchQuery, priceVal]);
 
   return (
     <div className="bg-[url('./src/assets/ingredients.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -101,14 +166,34 @@ function FoodMenu() {
         </div>
       </div>
       <div className="min-h-screen backdrop-blur-2xl bg-white/65">
-        <div className="container mx-auto px-16 py-8">
+        <div className="bg-white/30 p-6 flex justify-around">
+          <InputField
+            inRef={searchRef}
+            placeHolder={"Search"}
+            size={"2xl"}
+            withLabel={false}
+          />
+          <InputField
+            inRef={minPRef}
+            placeHolder={"Min price (in DH)"}
+            size={"2xl"}
+            withLabel={false}
+          />
+          <InputField
+            inRef={maxPRef}
+            placeHolder={"Max price (in DH)"}
+            size={"2xl"}
+            withLabel={false}
+          />
+        </div>
+        <div className="container mx-auto py-8">
           <h1 className="text-5xl font-semibold text-gray-800 font-customFont">
             Food Menu
           </h1>
           {/* Example card container */}
           <div className="grid grid-cols-3 gap-16 mt-8">
             {/* Example cards */}
-            {cards.map((card) => (
+            {fCards.map((card) => (
               <FoodCard card={card} key={card.id} />
             ))}
           </div>

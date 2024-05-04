@@ -27,7 +27,7 @@ function ProfilPage() {
           <div className="flex items-center mr-9 my-12 z-[1]">
             <LoginThing />
             <NButton name={"home"} />
-            <NButton name={"Our delicacies"} />
+            <NButton name={"menu"} />
             <ButtonForMenu name={"categories"} />
           </div>
         </div>

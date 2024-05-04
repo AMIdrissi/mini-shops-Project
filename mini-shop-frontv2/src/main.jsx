@@ -1,7 +1,6 @@
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import DropDownMenu from "./UI/dropDownMenu/DropDownMenu";
 import NButton from "./UI/buttons/NavBarButton";
 import MainPage from "./UI/MainPage/MainPage";
 import ButtonForMenu from "./UI/buttons/ButtonForMenu";

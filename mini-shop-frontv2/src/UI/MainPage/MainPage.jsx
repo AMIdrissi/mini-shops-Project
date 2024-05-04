@@ -1,22 +1,7 @@
-import ButtonForMenu from "../buttons/ButtonForMenu";
-import NavBarButton from "../buttons/NavBarButton";
-import UserIcon from "../icons/UserIcon";
-import Cart from "../icons/Cart";
-import Logo from "../logo/Logo";
-import LoginThing from "../buttons/Login";
-import Cappuccino from "../panel/CappuccinoPanel";
-import TopbgImg from "../panel/HeaderImage";
 import { useEffect, useRef, useState } from "react";
 import { useInView, useScroll, useTransform } from "framer-motion";
-import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
 import CertifiedTajine from "../icons/CertifiedTajine";
 import DishDescription from "../cardContainers/DishDescription";
-import NavBar_ from "./NavBar/NavBar";
-import FID from "../cardContainers/FeshIngredientsDesc";
-import ScooterIcon from "../icons/ScooterIcon";
-import NButton from "../buttons/NavBarButton";
-import DeliverToYou from "../panel/DeliverToYou";
-import RegisterPanel from "../panel/RegisterPanel";
 
 function MainPage() {
   const ref = useRef(null);
