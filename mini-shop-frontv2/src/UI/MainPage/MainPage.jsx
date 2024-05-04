@@ -51,7 +51,7 @@ function MainPage() {
   //test
 
   return (
-    <div className="grid grid-rows-4">
+    <div className="grid grid-rows-4 bg-[url('./src/assets/ingredients.jpg')] h-full overflow-x-hidden bg-no-repeat bg-center bg-fixed bg-cover">
       <NavBar_ />
       <div className="h-[864px] mt-0 bg-white">
         <FoodChoiceContainer reference={ref} whenInView={whenInViewF} />

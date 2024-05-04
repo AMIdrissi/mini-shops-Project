@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import mainImage from "../../assets/75264431.png";
 
-function TopbgImg() {
+function TopbgImg({imageUrl}) {
   const [h, setH] = useState(0);
   const { scrollYProgress } = useScroll();
   const scale1 = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
@@ -22,7 +22,7 @@ function TopbgImg() {
   return (
     <div className="h-[864px] overflow-y-hidden">
       <motion.img
-        src={mainImage}
+        src={imageUrl ? imageUrl : mainImage }
         alt=""
         id="bgImg"
         className="absolute top-0 w-full h-[864px] object-cover max-h-[864px]"
