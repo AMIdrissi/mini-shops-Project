@@ -17,17 +17,36 @@ const inputStyleFunction = (delay, positive) => {
   };
 };
 
+const maskPwd = (pwdString) => {
+  let maskedPwd = "";
+  for (let i = 0; i < pwdString.length; i++) {
+    maskedPwd += "•";
+  }
+  return maskedPwd;
+};
+
 function UserInfos({ editOn, user }) {
   if (editOn) {
     return (
       <div className="my-2">
-        <InputField placeHolder={"UserName"} type={"text"} value={"AF464654"} />
+        <InputField
+          placeHolder={"UserName"}
+          type={"text"}
+          value={"AF464654"}
+          size={"2xl"}
+        />
         <InputField
           placeHolder={"Password"}
-          type={"password"}
+          type={"text"}
           value={"AF464654"}
+          size={"2xl"}
         />
-        <InputField placeHolder={"Email"} type={"email"} value={"AF464654"} />
+        <InputField
+          placeHolder={"Email"}
+          type={"email"}
+          value={"AF464654"}
+          size={"2xl"}
+        />
         <div>
           <h4 className="mx-1 font-customFont text-lg">Address</h4>
           <motion.textarea
@@ -77,7 +96,7 @@ function UserInfos({ editOn, user }) {
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            hello
+            {maskPwd("hello")}
           </motion.p>
         </div>
         <div>
