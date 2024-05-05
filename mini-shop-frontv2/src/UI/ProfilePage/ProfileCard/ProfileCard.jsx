@@ -145,7 +145,7 @@ function ProfileCard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mx-32 mt-14 mb-10 ">
+    <div className="flex flex-col items-center justify-center mx-28 mt-14 mb-10 ">
       <div className="flex flex-col items-center justify-center ">
         <div
           className={`flex flex-col items-center justify-center border-4 rounded-tl-xl rounded-tr-xl bg-[#dcd7d7a1] ${

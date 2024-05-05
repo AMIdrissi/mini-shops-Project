@@ -17,9 +17,9 @@ import FoodMenu from "./UI/MenuPage/FoodMenu";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext.Provider value={{ isConnected: true }}>
-      {/* <ProfilPage /> */}
+      <ProfilPage />
       {/* <FoodMenu /> */}
-      <MainPage/>
+      {/* <MainPage/> */}
     </UserContext.Provider>
   </React.StrictMode>
 );

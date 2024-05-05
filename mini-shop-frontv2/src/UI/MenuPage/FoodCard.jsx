@@ -30,11 +30,11 @@ const foodContainerAn = {
   },
 };
 
-function FoodCard({ card }) {
+function FoodCard({ card, isCategoryVis }) {
   return (
     <motion.div
       key={card.id}
-      className={`bg-white/80 relative p-4 py-6 rounded-2xl shadow-xl shadow-red-700/25 transition-all duration-300 border-2 border-white font-customFont min-w-[250px]`}
+      className={`bg-white/80 relative p-4 py-6 rounded-2xl shadow-xl shadow-red-700/25 transition-all duration-300 border-2 border-white font-customFont min-w-[270px] mx-5 my-4`}
       initial="initS"
       whileHover="hover"
       animate="rest"
@@ -48,16 +48,20 @@ function FoodCard({ card }) {
           variants={foodCircleAn}
         />
       </div>
-      <div className="text-center">
+      <div className="flex flex-col items-center">
         <h2 className="font-semibold mb-2 text-2xl">{card.name}</h2>
         <p className="text-gray-600 mb-2">Price: {card.price}DH</p>
         <p className="text-green-500 mb-4">Promotion: {card.promotion}</p>
+        {isCategoryVis && (
+          <p className="bg-slate-200/40 mb-4 px-4 text-lg rounded-xl py-1">
+            Category: {card.category}
+          </p>
+        )}
+
         {/* <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
           Add to Cart
         </button> */}
-        <div className="flex justify-center">
-          <NButton name={"Add to cart"} size={"xl"} />
-        </div>
+        <NButton name={"Add to cart"} size={"xl"} />
       </div>
     </motion.div>
   );

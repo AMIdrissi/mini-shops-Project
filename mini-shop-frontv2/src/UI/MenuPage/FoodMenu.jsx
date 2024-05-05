@@ -14,6 +14,7 @@ function FoodMenu() {
     {
       id: 1,
       name: "Pizza Family",
+      category: "salty",
       price: 70,
       promotion: "20% off",
       image: "src/UI/icons/pizza.jpg",
@@ -21,6 +22,7 @@ function FoodMenu() {
     {
       id: 2,
       name: "Burger",
+      category: "salty",
       price: 50,
       promotion: "10% off",
       image: "src/UI/icons/recette-burger-maison.jpg",
@@ -28,6 +30,7 @@ function FoodMenu() {
     {
       id: 3,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -35,6 +38,7 @@ function FoodMenu() {
     {
       id: 4,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -42,6 +46,7 @@ function FoodMenu() {
     {
       id: 5,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -49,6 +54,7 @@ function FoodMenu() {
     {
       id: 6,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -56,6 +62,7 @@ function FoodMenu() {
     {
       id: 7,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -63,6 +70,7 @@ function FoodMenu() {
     {
       id: 8,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -70,11 +78,13 @@ function FoodMenu() {
     {
       id: 9,
       name: "Sushi",
+      category: "salty",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
   ];
+
   const [fCards, setFCards] = useState(cards);
   const searchRef = useRef();
   const maxPRef = useRef();
@@ -166,7 +176,7 @@ function FoodMenu() {
         </div>
       </div>
       <div className="min-h-screen backdrop-blur-2xl bg-white/65">
-        <div className="bg-white/30 p-6 flex justify-around">
+        <div className="bg-white/30 p-6 flex justify-around overflow-x-clip">
           <InputField
             inRef={searchRef}
             placeHolder={"Search"}
@@ -187,11 +197,11 @@ function FoodMenu() {
           />
         </div>
         <div className="container mx-auto py-8">
-          <h1 className="text-5xl font-semibold text-gray-800 font-customFont">
+          <h1 className="text-5xl font-semibold text-gray-800 font-customFont mx-4">
             Food Menu
           </h1>
           {/* Example card container */}
-          <div className="grid grid-cols-3 gap-16 mt-8">
+          <div className="grid grid-cols-3 gap-x-16 gap-y-4 mt-4">
             {/* Example cards */}
             {fCards.map((card) => (
               <FoodCard card={card} key={card.id} />

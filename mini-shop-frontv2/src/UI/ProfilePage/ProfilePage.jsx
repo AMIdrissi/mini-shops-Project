@@ -10,8 +10,85 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import Cart from "../icons/Cart";
 import OrderContainer from "./Orders/OrderContainer";
 import TopPart from "./TopPart";
+import HeartIcon from "../icons/Heart";
+import FoodCard from "../MenuPage/FoodCard";
 
 function ProfilPage() {
+  const cards = [
+    {
+      id: 1,
+      name: "Pizza Family",
+      category: "salty",
+      price: 70,
+      promotion: "20% off",
+      image: "src/UI/icons/pizza.jpg",
+    },
+    {
+      id: 2,
+      name: "Burger",
+      category: "salty",
+      price: 50,
+      promotion: "10% off",
+      image: "src/UI/icons/recette-burger-maison.jpg",
+    },
+    {
+      id: 3,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 4,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 5,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 6,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 7,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 8,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+    {
+      id: 9,
+      name: "Sushi",
+      category: "salty",
+      price: 100,
+      promotion: "Free drink",
+      image: "src/UI/icons/sushi.avif",
+    },
+  ];
+
   return (
     <>
       <div className={"h-[600px] overflow-x-hidden"}>
@@ -87,6 +164,19 @@ function ProfilPage() {
               <OrderContainer />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="border-t-4 border-red-600">
+        <div className="flex items-center">
+          <h2 className="text-black font-customFont text-4xl m-6 ml-28 mr-3">
+            Favourite products
+          </h2>
+          <HeartIcon hw={48} />
+        </div>
+        <div className="flex overflow-y-auto shadow-xl shadow-slate-600/30 py-4 px-2 mx-[26px] rounded-tr-3xl rounded-tl-3xl items-center">
+          {cards.map((card) => (
+            <FoodCard card={card} key={card.id} isCategoryVis={true} />
+          ))}
         </div>
       </div>
     </>
