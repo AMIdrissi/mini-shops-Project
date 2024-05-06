@@ -1,9 +1,9 @@
 # requirements
 
-- npm
+- npm (just for testing rn)
 
-## how to run
+<!-- ## how to run -->
 
-- run build.sh for linux
+<!-- - run build.sh for linux -->
 
-- run build.bat for windows
+<!-- - run build.bat for windows -->
