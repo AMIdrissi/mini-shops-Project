@@ -39,54 +39,6 @@ function ProfilPage() {
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
-    {
-      id: 4,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-    {
-      id: 5,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-    {
-      id: 6,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-    {
-      id: 7,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-    {
-      id: 8,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-    {
-      id: 9,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
   ];
 
   return (
@@ -94,7 +46,7 @@ function ProfilPage() {
       <div className={"h-[600px] overflow-x-hidden"}>
         <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between items-center">
           <h1></h1>
-          <div className="absolute top-0 left-0 bottom-0 w-full z-0 overflow-x-hidden ">
+          <div className="absolute top-0 left-0 bottom-0 w-full z-0 overflow-x-hidden overflow-y-hidden">
             <TopPart
               imageUrl={
                 "https://i.pinimg.com/originals/4a/63/52/4a6352ce2891b42518b8665532b33c70.gif"
@@ -108,7 +60,7 @@ function ProfilPage() {
             <ButtonForMenu name={"categories"} />
           </div>
         </div>
-        <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
+        <div className="mt-[250px]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Your Profil"} />
         </div>
       </div>

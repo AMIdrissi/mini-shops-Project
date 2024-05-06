@@ -7,7 +7,7 @@ function UserName({userName}) {
       whileHover="hover"
     >
       <motion.h1
-        className="text-9xl font-sans font-bold text-[#ffffff] flex items-center z-[1] mr-16 mb-4"
+        className="text-9xl font-sans font-bold text-[#ffffff] flex items-center z-[1] "
         initial={{ translateX: -100, opacity: 0 }}
         animate={{ translateX: 0, opacity: 1 }}
         transition={{

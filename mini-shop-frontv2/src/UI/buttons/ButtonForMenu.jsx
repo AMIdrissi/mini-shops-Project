@@ -76,7 +76,7 @@ export default function ButtonForMenu({ name, categories }) {
           open: {
             clipPath: "inset(0% 0% 0% 0% round 10px)",
             transition: {
-              type: "spring",
+              type: "tween",
               bounce: 0,
               duration: 0.7,
               delayChildren: 0.3,
