@@ -32,19 +32,19 @@ function UserInfos({ editOn, user }) {
         <InputField
           placeHolder={"UserName"}
           type={"text"}
-          value={"AF464654"}
+          // value={"AF464654"}
           size={"2xl"}
         />
         <InputField
           placeHolder={"Password"}
           type={"text"}
-          value={"AF464654"}
+          // value={"AF464654"}
           size={"2xl"}
         />
         <InputField
           placeHolder={"Email"}
           type={"email"}
-          value={"AF464654"}
+          // value={"AF464654"}
           size={"2xl"}
         />
         <div>
@@ -62,7 +62,7 @@ function UserInfos({ editOn, user }) {
             type="text"
             required
             placeholder="Address"
-            value={"AF45694"}
+            // value={"AF45694"}
             style={inputStyleFunction(0, false)}
           />
         </div>
