@@ -1,22 +1,12 @@
-import ButtonForMenu from "../buttons/ButtonForMenu";
-import NavBarButton from "../buttons/NavBarButton";
-import UserIcon from "../icons/UserIcon";
-import Cart from "../icons/Cart";
-import Logo from "../logo/Logo";
-import LoginThing from "../buttons/Login";
-import Cappuccino from "../panel/CappuccinoPanel";
-import TopbgImg from "../panel/HeaderImage";
 import { useEffect, useRef, useState } from "react";
 import { useInView, useScroll, useTransform } from "framer-motion";
-import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
 import CertifiedTajine from "../icons/CertifiedTajine";
 import DishDescription from "../cardContainers/DishDescription";
-import NavBar_ from "./NavBar/NavBar";
+import FoodChoiceContainer from "../cardContainers/FoodChoiceContainer";
 import FID from "../cardContainers/FeshIngredientsDesc";
-import ScooterIcon from "../icons/ScooterIcon";
-import NButton from "../buttons/NavBarButton";
-import DeliverToYou from "../panel/DeliverToYou";
+import NavBar_ from "./NavBar/NavBar";
 import RegisterPanel from "../panel/RegisterPanel";
+import DeliverToYou from "../panel/DeliverToYou";
 
 function MainPage() {
   const ref = useRef(null);
@@ -51,7 +41,7 @@ function MainPage() {
   //test
 
   return (
-    <div className="grid grid-rows-4">
+    <div className="grid grid-rows-4 bg-[url('./src/assets/ingredients.jpg')] h-full overflow-x-hidden bg-no-repeat bg-center bg-fixed bg-cover">
       <NavBar_ />
       <div className="h-[864px] mt-0 bg-white">
         <FoodChoiceContainer reference={ref} whenInView={whenInViewF} />

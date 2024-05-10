@@ -2,6 +2,7 @@
 
 import NButton from "../buttons/NavBarButton";
 
+
 function FID({ whenInView }) {
   return (
     <div
