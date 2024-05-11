@@ -30,21 +30,18 @@ function UserInfos({ editOn, user }) {
     return (
       <div className="my-2">
         <InputField
-          placeHolder={"UserName"}
+          placeHolder={user?.name ? user?.name : "UserName"}
           type={"text"}
-          // value={"AF464654"}
           size={"2xl"}
         />
         <InputField
-          placeHolder={"Password"}
+          placeHolder={user?.pwd ? user?.pwd : "Password"}
           type={"text"}
-          // value={"AF464654"}
           size={"2xl"}
         />
         <InputField
-          placeHolder={"Email"}
+          placeHolder={user?.email ? user?.email : "Email"}
           type={"email"}
-          // value={"AF464654"}
           size={"2xl"}
         />
         <div>
@@ -61,8 +58,7 @@ function UserInfos({ editOn, user }) {
             className={inputStyle("2xl")}
             type="text"
             required
-            placeholder="Address"
-            // value={"AF45694"}
+            placeholder={user?.address ? user?.address : "your Adress"}
             style={inputStyleFunction(0, false)}
           />
         </div>
@@ -132,7 +128,7 @@ function UserInfos({ editOn, user }) {
   }
 }
 
-function ProfileCard() {
+function ProfileCard({ userData }) {
   const [editOn, setEditOn] = useState(false);
   const deleteAn = {
     rest: { opacity: 0, scale: 0 },
@@ -189,7 +185,7 @@ function ProfileCard() {
             layout
             transition={{ type: "spring", stiffness: 700, damping: 30 }}
           >
-            <UserInfos editOn={editOn} />
+            <UserInfos editOn={editOn} user={userData} />
             <NButton
               name={editOn ? "Save" : "Edit"}
               size={"2xl"}

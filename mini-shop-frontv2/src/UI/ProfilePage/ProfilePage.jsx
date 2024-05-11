@@ -66,7 +66,14 @@ function ProfilPage() {
       </div>
       <div className="bg-[url('./src/assets/75264431.png')] bg-cover bg-no-repeat grid">
         <div className="flex backdrop-blur-2xl bg-white/40">
-          <ProfileCard />
+          <ProfileCard
+            userData={{
+              name: "AMIdrissi",
+              address: "ambi , dodo street",
+              pwd: "dddddd",
+              exmail: "email@email.com",
+            }}
+          />
           <div className="border-l-4 mt-14 mb-10 flex-grow px-10">
             <div className="text-5xl flex items-center p-4 ml-4">
               <h2 className="text-[#f6f6f6] font-customFont">Your Orders</h2>
