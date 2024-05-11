@@ -12,6 +12,7 @@ import OrderContainer from "./Orders/OrderContainer";
 import TopPart from "./TopPart";
 import HeartIcon from "../icons/Heart";
 import FoodCard from "../MenuPage/FoodCard";
+import NavbarGeneric from "../Navbar/NavbarGeneric";
 
 function ProfilPage() {
   const cards = [
@@ -53,12 +54,7 @@ function ProfilPage() {
               }
             />
           </div>
-          <div className="flex items-center mr-9 my-12 z-[1]">
-            <LoginThing />
-            <NButton name={"home"} />
-            <NButton name={"menu"} />
-            <ButtonForMenu name={"categories"} />
-          </div>
+          <NavbarGeneric />
         </div>
         <div className="mt-[250px]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Your Profil"} />

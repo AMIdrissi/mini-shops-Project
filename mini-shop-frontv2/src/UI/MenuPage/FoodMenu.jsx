@@ -7,6 +7,7 @@ import ButtonForMenu from "../buttons/ButtonForMenu";
 import UserName from "../ProfilePage/userName/UserName";
 import TopPart from "../ProfilePage/TopPart";
 import InputField from "../Inputs/InputField";
+import NavbarGeneric from "../Navbar/NavbarGeneric";
 
 function FoodMenu() {
   // Define card data
@@ -165,11 +166,7 @@ function FoodMenu() {
               scaler={1.05}
             />
           </div>
-          <div className="flex items-center mr-9 my-12 z-[1]">
-            <LoginThing />
-            <NButton name={"home"} />
-            <ButtonForMenu name={"categories"} />
-          </div>
+          <NavbarGeneric/>
         </div>
         <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Our Delicacies"} />

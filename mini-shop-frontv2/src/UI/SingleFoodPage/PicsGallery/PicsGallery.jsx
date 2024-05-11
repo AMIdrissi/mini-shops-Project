@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const picsLinks = [
@@ -9,9 +9,7 @@ const picsLinks = [
   "https://images.unsplash.com/photo-1602777924012-f8664ffeed27?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
-const maxW_H = 420;
-
-function PicSquareCrop({ link }) {
+function PicSquareCrop({ link, maxW_H }) {
   return (
     <div style={{ minWidth: maxW_H }}>
       <img
@@ -26,6 +24,12 @@ function PicSquareCrop({ link }) {
 
 function PicsGallery() {
   const [pos, setPos] = useState(0);
+  const [maxW_H, setMaxW_H] = useState(window.innerHeight * 0.65);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setMaxW_H(window.innerHeight * 0.65);
+    });
+  }, []);
 
   function handleTranslate(pos) {
     if (pos < 0) {
@@ -84,7 +88,7 @@ function PicsGallery() {
             }}
           >
             {picsLinks.map((pic) => {
-              return <PicSquareCrop link={pic} />;
+              return <PicSquareCrop link={pic} maxW_H={maxW_H} />;
             })}
           </motion.div>
         </div>
