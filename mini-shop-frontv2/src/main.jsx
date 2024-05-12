@@ -14,6 +14,32 @@ import ProfilPage from "./UI/ProfilePage/ProfilePage";
 import { UserContext } from "./UserContext";
 import FoodMenu from "./UI/MenuPage/FoodMenu";
 import SingleFoodPage from "./UI/SingleFoodPage/SingleFoodPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import FoodCard from "./UI/MenuPage/FoodCard";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+  },
+  {
+    path: "/profil",
+    element: <ProfilPage />,
+  },
+  {
+    path: "/menu",
+    element: <FoodMenu />,
+  },
+  // categories cause i could not figure out how to do it with outlets
+  {
+    path: "/menu/salty",
+    element: <FoodMenu Foodcategory={"salty"} />,
+  },
+  {
+    path: "/menu/product",
+    element: <SingleFoodPage />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,7 +47,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}
-      <SingleFoodPage/>
+      {/* <SingleFoodPage /> */}
+      <RouterProvider router={router} />
     </UserContext.Provider>
   </React.StrictMode>
 );

@@ -3,6 +3,8 @@ import LoginThing from "../../buttons/Login.jsx";
 import NButton from "../../buttons/NavBarButton.jsx";
 import TopbgImg from "../../panel/HeaderImage.jsx";
 import Logo from "../../logo/Logo.jsx";
+import { Link } from "react-router-dom";
+import NavbarGeneric from "../../Navbar/NavbarGeneric.jsx";
 
 function NavBar_({ bannerImg }) {
   return (
@@ -12,11 +14,7 @@ function NavBar_({ bannerImg }) {
         <div className="absolute top-0 left-0 bottom-0 w-full z-0">
           <TopbgImg imageUrl={bannerImg} />
         </div>
-        <div className="flex items-center mr-9 my-12 z-[1]">
-          <LoginThing />
-          <NButton name={"home"} />
-          <ButtonForMenu name={"categories"} />
-        </div>
+        <NavbarGeneric />
       </div>
       <div className="mt-[7%] scale-125 flex justify-center">
         <Logo />

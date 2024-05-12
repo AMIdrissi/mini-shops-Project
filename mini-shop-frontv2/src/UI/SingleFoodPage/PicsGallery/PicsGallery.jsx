@@ -119,7 +119,7 @@ function PicsGallery() {
         {picsLinks.map((pic, index) => {
           return (
             <div
-              className={`h-[6px] w-[6px] my-4 mx-2 ${
+              className={`h-[10px] w-[10px] my-4 mx-2 ${
                 pos === index ? "bg-red-600" : "bg-black/40"
               } rounded-full ease-in-out cursor-pointer`}
               onClick={() => {

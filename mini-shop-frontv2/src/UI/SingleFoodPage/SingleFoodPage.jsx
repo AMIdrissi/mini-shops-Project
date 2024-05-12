@@ -60,7 +60,7 @@ function SingleFoodPage() {
         <ProductInfo />
       </div>
       <div className="flex justify-center ">
-        <StarRating size={"text-7xl"} />
+        <StarRating size={"50px"} />
       </div>
       <div className="mx-36 mb-16">
         <h1 className="text-4xl font-customFont font-semibold my-7">

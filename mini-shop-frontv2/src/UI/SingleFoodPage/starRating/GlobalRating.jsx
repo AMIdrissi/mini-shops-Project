@@ -7,16 +7,16 @@ function GlobalRating({ rating, numReviewVis = false, hideStarColor }) {
     <div className="flex">
       <div className="flex h-16 text-clip items-center w-[216px]">
         <div className=" text-clip absolute">
-          <Star size={"text-5xl"} color={"red"} />
-          <Star size={"text-5xl"} color={"red"} />
-          <Star size={"text-5xl"} color={"red"} />
-          <Star size={"text-5xl"} color={"red"} />
-          <Star size={"text-5xl"} color={"red"} />
+          <Star size={"32px"} color={"red"} />
+          <Star size={"32px"} color={"red"} />
+          <Star size={"32px"} color={"red"} />
+          <Star size={"32px"} color={"red"} />
+          <Star size={"32px"} color={"red"} />
           <div
             style={{ width: 100 - rating + "%" }}
             className={` ${
               hideStarColor ? hideStarColor : "bg-white/80"
-            } h-16  absolute right-0`}
+            } h-12  absolute right-0 top-0`}
           ></div>
         </div>
       </div>

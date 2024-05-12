@@ -9,7 +9,7 @@ import TopPart from "../ProfilePage/TopPart";
 import InputField from "../Inputs/InputField";
 import NavbarGeneric from "../Navbar/NavbarGeneric";
 
-function FoodMenu() {
+function FoodMenu({ Foodcategory }) {
   // Define card data
   const cards = [
     {
@@ -31,7 +31,7 @@ function FoodMenu() {
     {
       id: 3,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -39,7 +39,7 @@ function FoodMenu() {
     {
       id: 4,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -47,7 +47,7 @@ function FoodMenu() {
     {
       id: 5,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -55,7 +55,7 @@ function FoodMenu() {
     {
       id: 6,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -63,7 +63,7 @@ function FoodMenu() {
     {
       id: 7,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -71,7 +71,7 @@ function FoodMenu() {
     {
       id: 8,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -79,7 +79,7 @@ function FoodMenu() {
     {
       id: 9,
       name: "Sushi",
-      category: "salty",
+      category: "sweet",
       price: 100,
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
@@ -166,7 +166,7 @@ function FoodMenu() {
               scaler={1.05}
             />
           </div>
-          <NavbarGeneric/>
+          <NavbarGeneric isMenuPage />
         </div>
         <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Our Delicacies"} />
@@ -200,9 +200,15 @@ function FoodMenu() {
           {/* Example card container */}
           <div className="grid grid-cols-3 gap-x-16 gap-y-4 mt-4">
             {/* Example cards */}
-            {fCards.map((card) => (
-              <FoodCard card={card} key={card.id} />
-            ))}
+            {fCards.map((card) =>
+              Foodcategory ? (
+                card.category === Foodcategory && (
+                  <FoodCard card={card} key={card.id} />
+                )
+              ) : (
+                <FoodCard card={card} key={card.id} />
+              )
+            )}
           </div>
         </div>
       </div>
