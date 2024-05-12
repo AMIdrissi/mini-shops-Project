@@ -2,10 +2,15 @@ import Star from "./Star";
 import StarRating from "./StarRating";
 
 // rating should be in precent
-function GlobalRating({ rating, numReviewVis = false, hideStarColor }) {
+function GlobalRating({
+  rating,
+  numReviewVis = false,
+  hideStarColor,
+  numReviews,
+}) {
   return (
     <div className="flex">
-      <div className="flex h-16 text-clip items-center w-[216px]">
+      <div className="flex h-16 text-clip items-center w-[200px]">
         <div className=" text-clip absolute">
           <Star size={"32px"} color={"red"} />
           <Star size={"32px"} color={"red"} />
@@ -22,7 +27,7 @@ function GlobalRating({ rating, numReviewVis = false, hideStarColor }) {
       </div>
       {numReviewVis && (
         <div className="flex items-center ml-8 text-xl mt-[2px] underline">
-          <a href="#reviews">{"20"} Reviews </a>
+          <a href="#reviews">{numReviews} Reviews </a>
         </div>
       )}
     </div>

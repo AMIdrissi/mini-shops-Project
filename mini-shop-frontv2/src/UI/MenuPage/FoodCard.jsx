@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import NButton from "../buttons/NavBarButton";
+import { Link } from "react-router-dom";
 
 // animation variants
 const foodCircleAn = {
@@ -41,12 +42,14 @@ function FoodCard({ card, isCategoryVis }) {
       variants={foodContainerAn}
     >
       <div className="flex justify-center items-center mb-4">
-        <motion.img
-          src={card.image}
-          alt={card.name}
-          className="h-48 w-48 rounded-full object-cover cursor-pointer"
-          variants={foodCircleAn}
-        />
+        <Link to={`/menu/product/${card.id}`}>
+          <motion.img
+            src={card.image}
+            alt={card.name}
+            className="h-48 w-48 rounded-full object-cover cursor-pointer"
+            variants={foodCircleAn}
+          />
+        </Link>
       </div>
       <div className="flex flex-col items-center">
         <h2 className="font-semibold mb-2 text-2xl">{card.name}</h2>

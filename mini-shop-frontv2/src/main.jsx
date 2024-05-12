@@ -30,13 +30,13 @@ const router = createBrowserRouter([
     path: "/menu",
     element: <FoodMenu />,
   },
+  {
+    path: "/menu/:category",
+    element: <FoodMenu />,
+  },
   // categories cause i could not figure out how to do it with outlets
   {
-    path: "/menu/salty",
-    element: <FoodMenu Foodcategory={"salty"} />,
-  },
-  {
-    path: "/menu/product",
+    path: "/menu/product/:id",
     element: <SingleFoodPage />,
   },
 ]);

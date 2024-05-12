@@ -8,8 +8,9 @@ import UserName from "../ProfilePage/userName/UserName";
 import TopPart from "../ProfilePage/TopPart";
 import InputField from "../Inputs/InputField";
 import NavbarGeneric from "../Navbar/NavbarGeneric";
+import { useParams } from "react-router";
 
-function FoodMenu({ Foodcategory }) {
+function FoodMenu() {
   // Define card data
   const cards = [
     {
@@ -17,7 +18,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Pizza Family",
       category: "salty",
       price: 70,
-      promotion: "20% off",
+      promotion: 20,
       image: "src/UI/icons/pizza.jpg",
     },
     {
@@ -25,7 +26,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Burger",
       category: "salty",
       price: 50,
-      promotion: "10% off",
+      promotion: 10,
       image: "src/UI/icons/recette-burger-maison.jpg",
     },
     {
@@ -33,7 +34,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -41,7 +42,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -49,7 +50,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -57,7 +58,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -65,7 +66,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -73,7 +74,7 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
     {
@@ -81,9 +82,14 @@ function FoodMenu({ Foodcategory }) {
       name: "Sushi",
       category: "sweet",
       price: 100,
-      promotion: "Free drink",
+      promotion: 15,
       image: "src/UI/icons/sushi.avif",
     },
+  ];
+
+  const category = useParams().category;
+  const categoryList = [
+    /* list of categories for url */
   ];
 
   const [fCards, setFCards] = useState(cards);
@@ -100,7 +106,9 @@ function FoodMenu({ Foodcategory }) {
 
   const handleSearch = (cardObj, queryObj, priceObj) => {
     if (
-      cardObj.name.includes(queryObj.query) &&
+      cardObj.name
+        .toLocaleLowerCase()
+        .includes(queryObj.query.toLocaleLowerCase()) &&
       cardObj.price >= priceObj.min &&
       cardObj.price <= priceObj.max
     ) {
@@ -201,8 +209,8 @@ function FoodMenu({ Foodcategory }) {
           <div className="grid grid-cols-3 gap-x-16 gap-y-4 mt-4">
             {/* Example cards */}
             {fCards.map((card) =>
-              Foodcategory ? (
-                card.category === Foodcategory && (
+              category ? (
+                card.category === category && (
                   <FoodCard card={card} key={card.id} />
                 )
               ) : (

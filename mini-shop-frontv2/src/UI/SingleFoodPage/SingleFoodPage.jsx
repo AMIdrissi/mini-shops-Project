@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import FoodCard from "../MenuPage/FoodCard";
 import NavbarGeneric from "../Navbar/NavbarGeneric";
 import LoginThing from "../buttons/Login";
@@ -16,7 +17,9 @@ const cards = [
     name: "Pizza Family",
     category: "salty",
     price: 70,
-    promotion: "20% off",
+    promotion: 30,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
     image: "src/UI/icons/pizza.jpg",
   },
   {
@@ -24,7 +27,9 @@ const cards = [
     name: "Pizza Family",
     category: "salty",
     price: 70,
-    promotion: "20% off",
+    promotion: 20,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
     image: "src/UI/icons/pizza.jpg",
   },
   {
@@ -32,7 +37,9 @@ const cards = [
     name: "Burger",
     category: "salty",
     price: 50,
-    promotion: "10% off",
+    promotion: 10,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
     image: "src/UI/icons/recette-burger-maison.jpg",
   },
   {
@@ -40,12 +47,19 @@ const cards = [
     name: "Sushi",
     category: "salty",
     price: 100,
-    promotion: "Free drink",
+    promotion: 15,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
     image: "src/UI/icons/sushi.avif",
   },
 ];
 
 function SingleFoodPage() {
+  const id = useParams().id;
+  console.log(id);
+  // this is where the fetch with the api should take place
+  const idProd = cards.filter((prod) => Number(prod.id) === Number(id));
+  window.scrollTo({ top: 0 });
   return (
     <div>
       <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between items-center bg-[url('https://i.pinimg.com/originals/4a/63/52/4a6352ce2891b42518b8665532b33c70.gif')] bg-center bg-no-repeat bg-cover ">
@@ -57,7 +71,7 @@ function SingleFoodPage() {
         <div className="flex justify-center items-center">
           <PicsGallery />
         </div>
-        <ProductInfo />
+        <ProductInfo product={idProd[0]} />
       </div>
       <div className="flex justify-center ">
         <StarRating size={"50px"} />
