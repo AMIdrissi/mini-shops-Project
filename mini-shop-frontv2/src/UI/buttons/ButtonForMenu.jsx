@@ -9,6 +9,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link, NavLink } from "react-router-dom";
 
 const itemVariants = {
   open: {
@@ -19,7 +20,9 @@ const itemVariants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-export default function ButtonForMenu({ name, categories }) {
+const categories = ["all", "salty", "sweet", "drink", "spicy"];
+
+export default function ButtonForMenu({ name }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -95,101 +98,44 @@ export default function ButtonForMenu({ name, categories }) {
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
         className="absolute min-w-40 mt-[70px] bg-[#ffffffee] p-1 px-[6px] m-2 rounded-xl child:text-gray-700 child:text-xl child:p-1 child:rounded-[8px]"
       >
-        <motion.li
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "#ededed",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-          whileTap={{
-            scale: 1,
-            backgroundColor: "#efdfdf",
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-        >
-          Item 1
-        </motion.li>
-        <motion.li
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "#ededed",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-          whileTap={{
-            scale: 1,
-            backgroundColor: "#efdfdf",
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-        >
-          Item 2{" "}
-        </motion.li>
-        <motion.li
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "#ededed",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-          whileTap={{
-            scale: 1,
-            backgroundColor: "#efdfdf",
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-        >
-          Item 3{" "}
-        </motion.li>
-        <motion.li
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "#ededed",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-          whileTap={{
-            scale: 1,
-            backgroundColor: "#efdfdf",
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-        >
-          Item 4{" "}
-        </motion.li>
-        <motion.li
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "#ededed",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-          whileTap={{
-            scale: 1,
-            backgroundColor: "#efdfdf",
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-        >
-          Item 5{" "}
-        </motion.li>
+        {categories.map((categorie) => {
+          return (
+            <motion.li
+              variants={itemVariants}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#ededed",
+                borderRadius: "8px",
+                cursor: "pointer",
+              }}
+              whileTap={{
+                scale: 1,
+                backgroundColor: "#efdfdf",
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "easeInOut",
+              }}
+              className="flex"
+              style={{ padding: "0px" }}
+            >
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive
+                    ? "text-red-600 text-2xl w-full h-full p-1 px-2"
+                    : "h-full w-full p-1";
+                }}
+                to={
+                  categorie === "all"
+                    ? `/menu`
+                    : `/menu/${categorie}`
+                }
+              >
+                {categorie.charAt(0).toUpperCase() + categorie.slice(1)}
+              </NavLink>
+            </motion.li>
+          );
+        })}
       </motion.ul>
     </motion.div>
   );

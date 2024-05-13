@@ -17,40 +17,100 @@ const cards = [
     name: "Pizza Family",
     category: "salty",
     price: 70,
-    promotion: 30,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-    image: "src/UI/icons/pizza.jpg",
-  },
-  {
-    id: 4,
-    name: "Pizza Family",
-    category: "salty",
-    price: 70,
     promotion: 20,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-    image: "src/UI/icons/pizza.jpg",
+    desc: "A classic pizza with a variety of toppings",
+    image:
+      "https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg",
   },
   {
     id: 2,
-    name: "Burger",
-    category: "salty",
-    price: 50,
+    name: "Sushi Deluxe",
+    category: "sweet",
+    price: 40,
     promotion: 10,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-    image: "src/UI/icons/recette-burger-maison.jpg",
+    desc: "A premium sushi set with fresh fish and vegetables",
+    image:
+      "https://www.cookwithmanali.com/wp-content/uploads/2021/04/Vegan-Sushi-500x500.jpg",
   },
   {
     id: 3,
-    name: "Sushi",
+    name: "Tacos Fiesta",
     category: "salty",
-    price: 100,
+    price: 50,
     promotion: 15,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra.Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-    image: "src/UI/icons/sushi.avif",
+    desc: "A flavorful taco set with a variety of toppings and sides",
+    image:
+      "https://www.allrecipes.com/thmb/4AbbUJe3vFzftNyAwCXW2nhDbjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5281437-a5d6b201a7274183b1501b41c04e4b0f.jpg",
+  },
+  {
+    id: 4,
+    name: "Burgers Classic",
+    category: "salty",
+    price: 60,
+    promotion: 25,
+    desc: "A classic burger with a variety of toppings and condiments",
+    image:
+      "https://lacuisineensemble.fr/wp-content/uploads/2022/02/recette-burger-maison-500x500.jpg",
+  },
+  {
+    id: 5,
+    name: "Salad Fresh",
+    category: "sweet",
+    price: 30,
+    promotion: 5,
+    desc: "A fresh salad with a variety of toppings and dressings",
+    image:
+      "https://www.refreshmyhealth.com/wp-content/uploads/2020/07/how-to-make-a-simple-salad-recipe-vegan-gluten-free-lunch_260-main_img_6804-lrcc.jpg",
+  },
+  {
+    id: 6,
+    name: "Wings Spicy",
+    category: "salty",
+    price: 80,
+    promotion: 35,
+    desc: "A spicy set of chicken wings with a variety of sauces",
+    image:
+      "https://savorwithjennifer.com/wp-content/uploads/2022/06/Extra-Crispy-Sweet-and-Spicy-Wings-on-the-Grill-1-2.jpg",
+  },
+  {
+    id: 7,
+    name: "Sandwich Club",
+    category: "salty",
+    price: 45,
+    promotion: 10,
+    desc: "A club sandwich with turkey, ham, and cheese",
+    image:
+      "https://tornadoughalli.com/wp-content/uploads/2022/05/CLUB-SANDWICH-RECIPE-3-2.jpg",
+  },
+  {
+    id: 8,
+    name: "Fries Golden",
+    category: "sweet",
+    price: 20,
+    promotion: 5,
+    desc: "A set of crispy fries with a variety of toppings",
+    image:
+      "https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800",
+  },
+  {
+    id: 9,
+    name: "Desserts Creamy",
+    category: "sweet",
+    price: 90,
+    promotion: 45,
+    desc: "A set of creamy desserts with a variety of flavors and toppings",
+    image:
+      "https://www.tasteofhome.com/wp-content/uploads/0001/01/Fried-Ice-Cream-Dessert-Bars-_EXPS_SDJJ19_232652_B02_06_1b_rms.jpg",
+  },
+  {
+    id: 10,
+    name: "Soup Hearty",
+    category: "salty",
+    price: 25,
+    promotion: 5,
+    desc: "A hearty set of soups with a variety of flavors and toppings",
+    image:
+      "https://res.cloudinary.com/hksqkdlah/image/upload/4811_sfs-wintervegetablesoup-316239.jpg",
   },
 ];
 

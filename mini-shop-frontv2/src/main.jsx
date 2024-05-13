@@ -17,6 +17,7 @@ import SingleFoodPage from "./UI/SingleFoodPage/SingleFoodPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FoodCard from "./UI/MenuPage/FoodCard";
 
+// this is basically the root path tree for the whole website
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,9 @@ const router = createBrowserRouter([
   {
     path: "/profil",
     element: <ProfilPage />,
+    loader: async () => {
+      return await fetch("URL");
+    },
   },
   {
     path: "/menu",
@@ -34,10 +38,12 @@ const router = createBrowserRouter([
     path: "/menu/:category",
     element: <FoodMenu />,
   },
-  // categories cause i could not figure out how to do it with outlets
   {
     path: "/menu/product/:id",
     element: <SingleFoodPage />,
+    loader: async ({params}) => {
+      return await fetch(`URL/${params.id}`);
+    },
   },
 ]);
 
