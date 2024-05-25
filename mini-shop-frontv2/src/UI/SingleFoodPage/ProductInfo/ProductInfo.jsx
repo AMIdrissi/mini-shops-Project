@@ -45,7 +45,7 @@ function ProductInfo({ product, numOfRatings, rating }) {
           Description
         </h1>
         <p className="text-xl my-6 font-customFont mr-10">
-          {product.description}
+          {product.desc}
         </p>
       </div>
       <div className="my-10">
