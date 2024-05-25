@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function OrderContainer() {
   return (
     <motion.div
-      className="font-customFont grid grid-cols-[auto_auto] items-center bg-[#dcd7d7a1] justify-between p-3 mr-[10%] mt-4 rounded-xl border-4 ml-4"
+      className="font-customFont grid grid-cols-[auto_auto] items-center bg-[#e9e4e4] justify-between p-3 mr-[10%] mt-4 rounded-xl border-4 ml-4"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.6, type: "spring", damping: 15 }}

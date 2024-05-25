@@ -15,6 +15,39 @@ import { UserContext } from "./UserContext";
 import FoodMenu from "./UI/MenuPage/FoodMenu";
 import LoginCard from "./UI/LoginPage/LoginCard";
 import PanierCard from "./UI/panier/PanierCard";
+import SingleFoodPage from "./UI/SingleFoodPage/SingleFoodPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import FoodCard from "./UI/MenuPage/FoodCard";
+
+// this is basically the root path tree for the whole website
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+  },
+  {
+    path: "/profil",
+    element: <ProfilPage />,
+    loader: async () => {
+      return await fetch("URL");
+    },
+  },
+  {
+    path: "/menu",
+    element: <FoodMenu />,
+  },
+  {
+    path: "/menu/:category",
+    element: <FoodMenu />,
+  },
+  {
+    path: "/menu/product/:id",
+    element: <SingleFoodPage />,
+    loader: async ({params}) => {
+      return await fetch(`URL/${params.id}`);
+    },
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,10 +55,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}
-      {/* <LoginCard /> */}
-      {/* <PanierCard /> */}
-      
-
+      {/* <SingleFoodPage /> */}
+      <RouterProvider router={router} />
     </UserContext.Provider>
   </React.StrictMode>
 );

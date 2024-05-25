@@ -7,6 +7,8 @@ import ButtonForMenu from "../buttons/ButtonForMenu";
 import UserName from "../ProfilePage/userName/UserName";
 import TopPart from "../ProfilePage/TopPart";
 import InputField from "../Inputs/InputField";
+import NavbarGeneric from "../Navbar/NavbarGeneric";
+import { useParams } from "react-router";
 
 function FoodMenu() {
   // Define card data
@@ -16,73 +18,96 @@ function FoodMenu() {
       name: "Pizza Family",
       category: "salty",
       price: 70,
-      promotion: "20% off",
-      image: "src/UI/icons/pizza.jpg",
+      promotion: 20,
+      image:
+        "https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg",
     },
     {
       id: 2,
-      name: "Burger",
-      category: "salty",
-      price: 50,
-      promotion: "10% off",
-      image: "src/UI/icons/recette-burger-maison.jpg",
+      name: "Sushi Deluxe",
+      category: "sweet",
+      price: 40,
+      promotion: 10,
+      image:
+        "https://www.cookwithmanali.com/wp-content/uploads/2021/04/Vegan-Sushi-500x500.jpg",
     },
     {
       id: 3,
-      name: "Sushi",
+      name: "Tacos Fiesta",
       category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      price: 50,
+      promotion: 15,
+      image:
+        "https://www.allrecipes.com/thmb/4AbbUJe3vFzftNyAwCXW2nhDbjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5281437-a5d6b201a7274183b1501b41c04e4b0f.jpg",
     },
     {
       id: 4,
-      name: "Sushi",
+      name: "Burgers Classic",
       category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      price: 60,
+      promotion: 25,
+      image:
+        "https://lacuisineensemble.fr/wp-content/uploads/2022/02/recette-burger-maison-500x500.jpg",
     },
     {
       id: 5,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      name: "Salad Fresh",
+      category: "sweet",
+      price: 30,
+      promotion: 5,
+      image:
+        "https://www.refreshmyhealth.com/wp-content/uploads/2020/07/how-to-make-a-simple-salad-recipe-vegan-gluten-free-lunch_260-main_img_6804-lrcc.jpg",
     },
     {
       id: 6,
-      name: "Sushi",
+      name: "Wings Spicy",
       category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      price: 80,
+      promotion: 35,
+      image:
+        "https://savorwithjennifer.com/wp-content/uploads/2022/06/Extra-Crispy-Sweet-and-Spicy-Wings-on-the-Grill-1-2.jpg",
     },
     {
       id: 7,
-      name: "Sushi",
+      name: "Sandwich Club",
       category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      price: 45,
+      promotion: 10,
+      image:
+        "https://tornadoughalli.com/wp-content/uploads/2022/05/CLUB-SANDWICH-RECIPE-3-2.jpg",
     },
     {
       id: 8,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      name: "Fries Golden",
+      category: "sweet",
+      price: 20,
+      promotion: 5,
+      image:
+        "https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800",
     },
     {
       id: 9,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
+      name: "Desserts Creamy",
+      category: "sweet",
+      price: 90,
+      promotion: 45,
+      image:
+        "https://www.tasteofhome.com/wp-content/uploads/0001/01/Fried-Ice-Cream-Dessert-Bars-_EXPS_SDJJ19_232652_B02_06_1b_rms.jpg",
     },
+    {
+      id: 10,
+      name: "Soup Hearty",
+      category: "salty",
+      price: 25,
+      promotion: 5,
+      image:
+        "https://res.cloudinary.com/hksqkdlah/image/upload/4811_sfs-wintervegetablesoup-316239.jpg",
+    },
+  ];
+
+  const category = useParams().category;
+  const categoryList = [
+    /* list of categories for url */
   ];
 
   const [fCards, setFCards] = useState(cards);
@@ -99,7 +124,9 @@ function FoodMenu() {
 
   const handleSearch = (cardObj, queryObj, priceObj) => {
     if (
-      cardObj.name.includes(queryObj.query) &&
+      cardObj.name
+        .toLocaleLowerCase()
+        .includes(queryObj.query.toLocaleLowerCase()) &&
       cardObj.price >= priceObj.min &&
       cardObj.price <= priceObj.max
     ) {
@@ -165,11 +192,7 @@ function FoodMenu() {
               scaler={1.05}
             />
           </div>
-          <div className="flex items-center mr-9 my-12 z-[1]">
-            <LoginThing />
-            <NButton name={"home"} />
-            <ButtonForMenu name={"categories"} />
-          </div>
+          <NavbarGeneric isMenuPage />
         </div>
         <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Our Delicacies"} />
@@ -203,9 +226,15 @@ function FoodMenu() {
           {/* Example card container */}
           <div className="grid grid-cols-3 gap-x-16 gap-y-4 mt-4">
             {/* Example cards */}
-            {fCards.map((card) => (
-              <FoodCard card={card} key={card.id} />
-            ))}
+            {fCards.map((card) =>
+              category ? (
+                card.category === category && (
+                  <FoodCard card={card} key={card.id} />
+                )
+              ) : (
+                <FoodCard card={card} key={card.id} />
+              )
+            )}
           </div>
         </div>
       </div>

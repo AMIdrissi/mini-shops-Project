@@ -1,3 +1,3 @@
 #!/bin/bash
-docker build -t mini-shops .
-docker run -p 5174:5173 --name mini-shop-prj -it -d -v ./mini-shop-frontv2:/mini_shops_frontend mini-shops
+docker build -t mini-shop-front:v1 .
+docker run --name mini-shop-front-v2 -d -it -p 5175:5173 --rm mini-shop-front:v1
