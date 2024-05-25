@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
-import NButton from "../buttons/NavBarButton";
-import { delay, filterProps, motion } from "framer-motion";
-import FoodCard from "./FoodCard";
-import LoginThing from "../buttons/Login";
-import ButtonForMenu from "../buttons/ButtonForMenu";
-import UserName from "../ProfilePage/userName/UserName";
-import TopPart from "../ProfilePage/TopPart";
-import InputField from "../Inputs/InputField";
-import NavbarGeneric from "../Navbar/NavbarGeneric";
-import { useParams } from "react-router";
+import React, { useEffect, useRef, useState } from "react"
+import NButton from "../buttons/NavBarButton"
+import { delay, filterProps, motion } from "framer-motion"
+import FoodCard from "./FoodCard"
+import LoginThing from "../buttons/Login"
+import ButtonForMenu from "../buttons/ButtonForMenu"
+import UserName from "../ProfilePage/userName/UserName"
+import TopPart from "../ProfilePage/TopPart"
+import InputField from "../Inputs/InputField"
+import NavbarGeneric from "../Navbar/NavbarGeneric"
+import { useParams } from "react-router"
+import produitService from "../../services/ProduitService"
 
 function FoodMenu() {
   // Define card data
@@ -103,24 +104,24 @@ function FoodMenu() {
       image:
         "https://res.cloudinary.com/hksqkdlah/image/upload/4811_sfs-wintervegetablesoup-316239.jpg",
     },
-  ];
+  ]
 
-  const category = useParams().category;
+  const category = useParams().category
   const categoryList = [
     /* list of categories for url */
-  ];
+  ]
 
-  const [fCards, setFCards] = useState(cards);
-  const searchRef = useRef();
-  const maxPRef = useRef();
-  const minPRef = useRef();
+  const [fCards, setFCards] = useState(cards)
+  const searchRef = useRef()
+  const maxPRef = useRef()
+  const minPRef = useRef()
   const [priceVal, setPriceVal] = useState({
     min: -1,
     max: Number.MAX_SAFE_INTEGER,
-  });
+  })
   const [searchQuery, setSearchQuery] = useState({
     query: "",
-  });
+  })
 
   const handleSearch = (cardObj, queryObj, priceObj) => {
     if (
@@ -130,33 +131,46 @@ function FoodMenu() {
       cardObj.price >= priceObj.min &&
       cardObj.price <= priceObj.max
     ) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
-  };
+  }
+
+  const fetchFood = async () => {
+    try {
+      const produits = await produitService.getAllProduits()
+      console.log(produits)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchFood()
+  }, [])
 
   useEffect(() => {
     searchRef.current.addEventListener("keyup", (e) => {
       const tempSearch = {
         query: e.currentTarget.value ? e.currentTarget.value : "",
-      };
-      setSearchQuery(tempSearch);
-    });
-  }, [priceVal]);
+      }
+      setSearchQuery(tempSearch)
+    })
+  }, [priceVal])
 
   useEffect(() => {
-    const numRegEx = /^[0-9]*$/;
+    const numRegEx = /^[0-9]*$/
     minPRef.current.addEventListener("keyup", (e) => {
       if (numRegEx.test(e.target.value)) {
         setPriceVal({
           max: priceVal.max,
           min: e.currentTarget.value ? parseInt(e.currentTarget.value) : -1,
-        });
+        })
       } else {
-        e.target.value = "";
+        e.target.value = ""
       }
-    });
+    })
 
     maxPRef.current.addEventListener("keyup", (e) => {
       if (numRegEx.test(e.target.value)) {
@@ -165,19 +179,19 @@ function FoodMenu() {
           max: e.currentTarget.value
             ? parseInt(e.currentTarget.value)
             : Number.MAX_SAFE_INTEGER,
-        });
+        })
       } else {
-        e.target.value = "";
+        e.target.value = ""
       }
-    });
-  }, []);
+    })
+  }, [])
 
   useEffect(() => {
     const filteredCards = cards.filter((card) => {
-      return handleSearch(card, searchQuery, priceVal);
-    });
-    setFCards(filteredCards);
-  }, [searchQuery, priceVal]);
+      return handleSearch(card, searchQuery, priceVal)
+    })
+    setFCards(filteredCards)
+  }, [searchQuery, priceVal])
 
   return (
     <div className="bg-[url('./src/assets/ingredients.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -239,7 +253,7 @@ function FoodMenu() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default FoodMenu;
+export default FoodMenu
