@@ -1,7 +1,11 @@
+// src/components/navbars/NavbarGeneric.jsx
+
+import React from "react";
 import { Link } from "react-router-dom";
 import ButtonForMenu from "../buttons/ButtonForMenu";
-import LoginThing from "../buttons/Login";
 import NButton from "../buttons/NavBarButton";
+import PanierButton from "../buttons/PanierButton";  
+import LoginThing from "../buttons/Login";
 
 function NavbarGeneric({ isMenuPage }) {
   return (
@@ -17,6 +21,7 @@ function NavbarGeneric({ isMenuPage }) {
         }
       />
       <ButtonForMenu name={"categories"} />
+      <PanierButton />  
     </div>
   );
 }
