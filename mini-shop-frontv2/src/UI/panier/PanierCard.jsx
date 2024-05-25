@@ -6,8 +6,8 @@ const foodProduct = {
   description:
     "Savor the exquisite taste of our artisanal pizza, crafted with the finest ingredients and bursting with flavor. Each bite offers a mouthwatering combination of crispy crust, tangy sauce, gooey cheese, and savory toppings.",
   price: 75,
-  previousPrice: 90, // Adding previous price for promotion indication
-  image: "https://img.cuisineaz.com/1024x768/2018/02/28/i136025-pizza-legere.jpeg", // Replace this URL with the direct link to the pizza image
+  previousPrice: 90,
+  image: "https://img.cuisineaz.com/1024x768/2018/02/28/i136025-pizza-legere.jpeg",
 };
 
 function PanierCard() {
@@ -27,24 +27,23 @@ function PanierCard() {
     setQuantity(0);
   };
 
-  // Calculate total price
   const totalPrice = foodProduct.price * quantity;
 
   return (
-    <div className="flex items-center justify-center my-8">
+    <div className="flex items-center justify-center my-4">
       <div
-        className="bg-gray-100 rounded-lg p-6 shadow-md mx-auto"
-        style={{ maxWidth: "1086px", width: "100%" }}
+        className="bg-gray-100 bg-opacity-80 rounded-lg p-4 shadow-md mx-auto"
+        style={{ maxWidth: "900px", width: "100%" }}
       >
         <div className="flex items-center justify-between">
           <img
             src={foodProduct.image}
             alt={foodProduct.name}
-            className="w-32 h-32 object-cover rounded-md mr-4"
+            className="w-24 h-24 object-cover rounded-md mr-4"
           />
           <div>
             <motion.h2
-              className="text-xl font-semibold mb-2"
+              className="text-lg font-semibold mb-2"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -62,21 +61,21 @@ function PanierCard() {
           <div className="flex items-center">
             <button
               onClick={handleDecrease}
-              className="bg-gray-200 text-gray-700 px-4 py-2 rounded-l-lg"
+              className="bg-gray-200 text-gray-700 px-3 py-1 rounded-l-lg"
             >
               -
             </button>
-            <span className="bg-gray-200 px-4 py-2">{quantity}</span>
+            <span className="bg-gray-200 px-3 py-1">{quantity}</span>
             <button
               onClick={handleIncrease}
-              className="bg-gray-200 text-gray-700 px-4 py-2 rounded-r-lg"
+              className="bg-gray-200 text-gray-700 px-3 py-1 rounded-r-lg"
             >
               +
             </button>
           </div>
           <motion.button
             onClick={handleDelete}
-            className="font-bold bg-red-600 text-white hover:bg-red-700 px-4 py-2 rounded-md focus:outline-none"
+            className="font-bold bg-red-600 text-white hover:bg-red-700 px-3 py-1 rounded-md focus:outline-none"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

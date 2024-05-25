@@ -14,10 +14,11 @@ import ProfilPage from "./UI/ProfilePage/ProfilePage";
 import { UserContext } from "./UserContext";
 import FoodMenu from "./UI/MenuPage/FoodMenu";
 import LoginCard from "./UI/LoginPage/LoginCard";
-import PanierCard from "./UI/panier/PanierCard";
 import SingleFoodPage from "./UI/SingleFoodPage/SingleFoodPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FoodCard from "./UI/MenuPage/FoodCard";
+import PanierCard from "./UI/panier/PanierCard";
+import PanierPage from "./UI/panier/panierpage";
 
 // this is basically the root path tree for the whole website
 const router = createBrowserRouter([
@@ -47,11 +48,16 @@ const router = createBrowserRouter([
       return await fetch(`URL/${params.id}`);
     },
   },
+  {
+    path: "/panier", 
+    element: <PanierPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext.Provider value={{ isConnected: true }}>
+      
       {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}
