@@ -1,18 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-import NavBar_ from "../MainPage/NavBar/NavBar";
-import TopbgImg from "../panel/HeaderImage";
-import LoginThing from "../buttons/Login";
-import NButton from "../buttons/NavBarButton";
-import ButtonForMenu from "../buttons/ButtonForMenu";
-import UserName from "./userName/UserName";
-import ProfileCard from "./ProfileCard/ProfileCard";
-import { useScroll, useTransform, motion } from "framer-motion";
-import Cart from "../icons/Cart";
-import OrderContainer from "./Orders/OrderContainer";
-import TopPart from "./TopPart";
-import HeartIcon from "../icons/Heart";
-import FoodCard from "../MenuPage/FoodCard";
-import NavbarGeneric from "../Navbar/NavbarGeneric";
+import { useContext, useEffect, useState } from "react"
+import NavBar_ from "../MainPage/NavBar/NavBar"
+import TopbgImg from "../panel/HeaderImage"
+import LoginThing from "../buttons/Login"
+import NButton from "../buttons/NavBarButton"
+import ButtonForMenu from "../buttons/ButtonForMenu"
+import UserName from "./userName/UserName"
+import ProfileCard from "./ProfileCard/ProfileCard"
+import { useScroll, useTransform, motion } from "framer-motion"
+import Cart from "../icons/Cart"
+import OrderContainer from "./Orders/OrderContainer"
+import TopPart from "./TopPart"
+import HeartIcon from "../icons/Heart"
+import FoodCard from "../MenuPage/FoodCard"
+import NavbarGeneric from "../Navbar/NavbarGeneric"
 
 function ProfilPage() {
   const cards = [
@@ -40,7 +40,7 @@ function ProfilPage() {
       promotion: "Free drink",
       image: "src/UI/icons/sushi.avif",
     },
-  ];
+  ]
 
   return (
     <>
@@ -135,7 +135,7 @@ function ProfilPage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ProfilPage;
+export default ProfilPage
