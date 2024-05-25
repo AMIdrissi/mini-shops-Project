@@ -23,7 +23,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}
       {/* <LoginCard /> */}
-      <PanierCard />
+      {/* <PanierCard /> */}
+      
 
     </UserContext.Provider>
   </React.StrictMode>
