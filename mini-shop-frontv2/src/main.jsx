@@ -13,13 +13,19 @@ import FoodChoiceContainer from "./UI/cardContainers/FoodChoiceContainer";
 import ProfilPage from "./UI/ProfilePage/ProfilePage";
 import { UserContext } from "./UserContext";
 import FoodMenu from "./UI/MenuPage/FoodMenu";
+import LoginCard from "./UI/LoginPage/LoginCard";
+import PanierCard from "./UI/panier/PanierCard";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext.Provider value={{ isConnected: true }}>
-      <ProfilPage />
+      {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}
+      {/* <LoginCard /> */}
+      {/* <PanierCard /> */}
+      
+
     </UserContext.Provider>
   </React.StrictMode>
 );
