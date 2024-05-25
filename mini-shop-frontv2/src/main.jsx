@@ -13,6 +13,8 @@ import FoodChoiceContainer from "./UI/cardContainers/FoodChoiceContainer";
 import ProfilPage from "./UI/ProfilePage/ProfilePage";
 import { UserContext } from "./UserContext";
 import FoodMenu from "./UI/MenuPage/FoodMenu";
+import LoginCard from "./UI/LoginPage/LoginCard";
+import PanierCard from "./UI/panier/PanierCard";
 import SingleFoodPage from "./UI/SingleFoodPage/SingleFoodPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FoodCard from "./UI/MenuPage/FoodCard";
