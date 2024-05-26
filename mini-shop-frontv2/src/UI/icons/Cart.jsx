@@ -1,21 +1,28 @@
 function Cart() {
   return (
     <svg
-      width="35px"
-      height="35px"
-      viewBox="0 0 26 24"
-      fill="none"
+      width="45px"
+      height="45px"
+      viewBox="0 0 36 36"
+      version="1.1"
+      preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
-      key={"cart"}
-      className="p-[3px] rounded-[50%] mx-2 hover:bg-[#a2a1a686] flex justify-center hover:cursor-pointer"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
+      <circle
+        cx="13.5"
+        cy="29.5"
+        r="2.5"
+      ></circle>
+      <circle
+        cx="26.5"
+        cy="29.5"
+        r="2.5"
+      ></circle>
       <path
-        d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-        stroke="#232227"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+        d="M33.1,6.39A1,1,0,0,0,32.31,6H9.21L8.76,4.57a1,1,0,0,0-.66-.65L4,2.66a1,1,0,1,0-.59,1.92L7,5.68l4.58,14.47L9.95,21.49l-.13.13A2.66,2.66,0,0,0,9.74,25,2.75,2.75,0,0,0,12,26H28.69a1,1,0,0,0,0-2H11.84a.67.67,0,0,1-.56-1l2.41-2H29.12a1,1,0,0,0,1-.76l3.2-13A1,1,0,0,0,33.1,6.39Z"
+      ></path>
+      <rect x="0" y="0" width="36" height="36" fillOpacity="0" />
     </svg>
   );
 }

@@ -98,9 +98,10 @@ export default function ButtonForMenu({ name }) {
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
         className="absolute min-w-40 mt-[70px] bg-[#ffffffee] p-1 px-[6px] m-2 rounded-xl child:text-gray-700 child:text-xl child:p-1 child:rounded-[8px]"
       >
-        {categories.map((categorie) => {
+        {categories.map((categorie , index) => {
           return (
             <motion.li
+            key={index}
               variants={itemVariants}
               whileHover={{
                 scale: 1.05,

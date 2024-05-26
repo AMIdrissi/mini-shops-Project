@@ -10,7 +10,7 @@ import LoginThing from "../buttons/Login";
 function NavbarGeneric({ isMenuPage }) {
   return (
     <div className="flex items-center mr-9 z-[1]">
-      <LoginThing />
+      <PanierButton /> 
       <NButton
         name={
           !isMenuPage ? (
@@ -20,8 +20,8 @@ function NavbarGeneric({ isMenuPage }) {
           )
         }
       />
-      <ButtonForMenu name={"categories"} />
-      <PanierButton />  
+      <ButtonForMenu name={"categories"} /> 
+      <LoginThing />
     </div>
   );
 }
