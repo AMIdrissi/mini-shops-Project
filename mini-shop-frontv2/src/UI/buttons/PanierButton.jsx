@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import panierIcon from "../../assets/panier.png"; // Import the panier icon
+import Cart from "../icons/Cart";
+import LoadedCart from "../icons/LoadedCart";
 
 function PanierButton() {
   return (
-    <div className="flex justify-center min-w-[168px]">
+    <div className="flex justify-center ">
       <motion.button
-        className="bg-[#eae7e7] px-6 py-2 rounded-3xl m-2 border-[3px] border-[#eae7e7]"
+        className="bg-[#eae7e700] px-3 py-2 rounded-3xl m-2 flex justify-center items-center"
         whileHover={{
-          border: "3px solid rgb(185 ,28 ,28)",
-          boxShadow: "0px 0px 10px rgb(185 ,28 ,28)",
-          backgroundColor: "#ffffffdd",
+          fill: "#eeeeeebb",
           scale: 1.05,
         }}
         whileTap={{
           scale: 0.95,
         }}
-        initial={{ translateY: -100, opacity: 0 }}
+        initial={{ translateY: -100, opacity: 0, fill: "#ffffff" }}
         animate={{ translateY: 0, opacity: 1 }}
         transition={{
           delay: 0,
@@ -24,9 +23,15 @@ function PanierButton() {
           type: "tween",
           damping: 20,
         }}
+        onClick={() => {
+          console.log("here");
+        }}
       >
-        <Link to="/panier"> {/* Update to navigate to /panier */}
-          <img src={panierIcon} alt="Panier" className="h-8 w-8" /> {/* Panier icon */}
+        <Link to="/panier">
+          {" "}
+          {/* Update to navigate to /panier */}
+          <LoadedCart />
+          {/* Panier icon */}
         </Link>
       </motion.button>
     </div>

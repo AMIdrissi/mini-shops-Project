@@ -14,11 +14,12 @@ const inputStyleFunction = (delay, positive) => {
   };
 };
 
-export default function InputField({ placeHolder, value, type, style, size , inRef , withLabel=true }) {
+export default function InputField({name, placeHolder, value, type, style, size , inRef , withLabel=true }) {
   return (
     <div>
-      {withLabel ? <h4 className="mx-1 font-customFont text-lg">{placeHolder}</h4> : ""}
+      {withLabel ? <h4 className="mx-1 my-1 font-customFont text-lg">{placeHolder}</h4> : ""}
       <motion.input
+      name={name}
         ref={inRef}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -30,7 +31,6 @@ export default function InputField({ placeHolder, value, type, style, size , inR
         type={type}
         required
         placeholder={placeHolder}
-        value={value}
         style={inputStyleFunction(0, false)}
       />
     </div>

@@ -2,7 +2,7 @@ import axios from "axios"
 import Cookies from "js-cookie"
 
 const env = {
-  endpoint: "http://localhost:8080",
+  endpoint: "http://localhost:8082",
 }
 
 const HttpClient = axios.create({

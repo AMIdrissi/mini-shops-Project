@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext, useUserContext } from "../../UserContext";
+import { Link } from "react-router-dom";
 
 function LoginThing() {
-  const user = useUserContext()
+  const user = useUserContext();
 
   return (
     <motion.div
-      className="flex py-[2px] items-center border-b-2 border-b-[#fffffd00] ease-in-out duration-200 hover:cursor-pointer rounded-xl pl-[6px]"
+      className="flex py-[2px] items-center border-b-2 border-b-[#fffffd00] ease-in-out duration-200 hover:cursor-pointer rounded-xl pl-[6px] ml-4"
       whileHover={{
         boxShadow: "0px 0px 15px #000000",
       }}
@@ -42,13 +43,17 @@ function LoginThing() {
         />
       </svg>
       {user.isConnected ? (
-        <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
-          AMIdrissi
-        </p>
+        <Link to="/profil">
+          <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
+            AMIdrissi
+          </p>
+        </Link>
       ) : (
-        <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
-          Log in
-        </p>
+        <Link to="/login">
+          <p className="text-[22px] px-2 min-w-20 text-[#eae7e7] font-customFont text-center ">
+            Log in
+          </p>
+        </Link>
       )}
     </motion.div>
   );
