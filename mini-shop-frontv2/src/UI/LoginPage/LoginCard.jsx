@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import InputField from "../Inputs/InputField";
 import NButton from "../buttons/NavBarButton";
-import { Form, redirect } from "react-router-dom";
+import { Form, Navigate, redirect, useNavigate } from "react-router-dom";
 import authenticate from "../../services/LoginService";
 import RegisterCard from "./RegisterCard";
+import Cookies from "js-cookie";
 
 const inputStyle = (textSize) => {
   return (
@@ -15,8 +16,9 @@ const inputStyle = (textSize) => {
 };
 
 function LoginCard() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isInfoOk, setIsinfoOk] = useState(true);
   const [isRegisterMode, setIsRegisterMode] = useState(false); // State to track if it's in register mode
+  const navigate = useNavigate();
 
   const handleRegisterModeToggle = () => {
     setIsRegisterMode(!isRegisterMode);
@@ -50,6 +52,12 @@ function LoginCard() {
               <h1 className="font-customFont text-4xl font-bold p-5 pb-4">
                 WELCOME!
               </h1>
+              {!isInfoOk && (
+                <p className="text-white px-2 py-1 rounded-xl bg-red-600 font-customFont font-bold">
+                  {" "}
+                  invalid UserName or Password{" "}
+                </p>
+              )}
               <div className="p-3">
                 <InputField
                   name={"email"}
@@ -75,11 +83,19 @@ function LoginCard() {
                           loginNameRef.current.value,
                           loginPwdRef.current.value
                         )
-                        .then(function (response) {
-                          console.log(response);
+                        .then((response) => {
+                          console.log(response.status);
+                          if (response.status === 200) {
+                            Cookies.set("USER", response.data.token);
+                            navigate("/menu");
+                          }
                         })
-                        .catch(function (error) {
-                          console.log(error);
+                        .catch((err) => {
+                          console.log();
+                          if (err.response.status === 400) {
+                            setIsinfoOk(false);
+                          }
+                          // navigate("/");
                         });
                     }}
                   />

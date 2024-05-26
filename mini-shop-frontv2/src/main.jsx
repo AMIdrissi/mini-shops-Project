@@ -20,6 +20,8 @@ import FoodCard from "./UI/MenuPage/FoodCard";
 import PanierCard from "./UI/panier/PanierCard";
 import PanierPage from "./UI/panier/panierpage";
 import produitService from "./services/ProduitService";
+import LoginPage from "./UI/LoginPage/LoginPage";
+import Cookies from "js-cookie";
 
 // this is basically the root path tree for the whole website
 const router = createBrowserRouter([
@@ -57,7 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginCard />,
+    element: <LoginPage />,
   },
   {
     path: "/panier",
@@ -67,7 +69,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserContext.Provider value={{ isConnected: true }}>
+    <UserContext.Provider
+      value={{ isConnected: Cookies.get("USER") ? true : false }}
+    >
       {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}

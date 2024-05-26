@@ -1,15 +1,15 @@
-import HttpClient from "./HttpClient"
+import HttpClient from "./HttpClient";
 
 class ProduitService {
-  produitEndpoint = "/produit"
+  produitEndpoint = "/produit";
 
   getAllProduits() {
-    return HttpClient.get(`${this.produitEndpoint}/all`).then(
-      (response) => response.data
-    )
+    return HttpClient.get(`${this.produitEndpoint}/all`, {
+      // Authorization: `Bearer ${Cookies.get("USER")}`,
+    }).then((response) => response.data);
   }
 }
 
-const produitService = new ProduitService()
+const produitService = new ProduitService();
 
-export default produitService
+export default produitService;

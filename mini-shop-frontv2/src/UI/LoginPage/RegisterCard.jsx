@@ -11,7 +11,7 @@ function RegisterCard() {
   const regAddressRef = useRef();
 
   return (
-    <div className="flex flex-col items-center p-3">
+    <div className="flex flex-col items-center p-3 pb-0">
       <h1 className="font-customFont text-4xl font-bold p-5 pb-4">
         REGISTER NOW!
       </h1>
@@ -47,7 +47,7 @@ function RegisterCard() {
             cols="15"
             rows="6"
             className={
-              "bg-red-800 border-[3px] text-white placeholder-white py-1 px-3 font-customFont text-" +
+              "bg-red-800 border-[3px] text-white placeholder-white py-0 px-3 font-customFont text-" +
               "2xl" +
               " rounded-3xl outline-none focus:pl-5 focus:bg-red-900 w-96"
             }
