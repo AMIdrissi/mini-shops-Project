@@ -13,81 +13,9 @@ import produitService from "../../services/ProduitService";
 
 function FoodMenu() {
   // Define card data
-  // const cards = [
-  //   {
-  //     id: 1,
-  //     name: "Pizza Family",
-  //     image:
-  //       "https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Sushi Deluxe",
-  //     image:
-  //       "https://www.cookwithmanali.com/wp-content/uploads/2021/04/Vegan-Sushi-500x500.jpg",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Tacos Fiesta",
-  //     image:
-  //       "https://www.allrecipes.com/thmb/4AbbUJe3vFzftNyAwCXW2nhDbjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5281437-a5d6b201a7274183b1501b41c04e4b0f.jpg",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Burgers Classic",
-  //     image:
-  //       "https://lacuisineensemble.fr/wp-content/uploads/2022/02/recette-burger-maison-500x500.jpg",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Salad Fresh",
-  //     image:
-  //       "https://www.refreshmyhealth.com/wp-content/uploads/2020/07/how-to-make-a-simple-salad-recipe-vegan-gluten-free-lunch_260-main_img_6804-lrcc.jpg",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Wings Spicy",
-  //     image:
-  //       "https://savorwithjennifer.com/wp-content/uploads/2022/06/Extra-Crispy-Sweet-and-Spicy-Wings-on-the-Grill-1-2.jpg",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Sandwich Club",
-  //     image:
-  //       "https://tornadoughalli.com/wp-content/uploads/2022/05/CLUB-SANDWICH-RECIPE-3-2.jpg",
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Fries Golden",
-  //     image:
-  //       "https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800",
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Desserts Creamy",
-  //     image:
-  //       "https://www.tasteofhome.com/wp-content/uploads/0001/01/Fried-Ice-Cream-Dessert-Bars-_EXPS_SDJJ19_232652_B02_06_1b_rms.jpg",
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Soup Hearty",
-  //     image:
-  //       "https://res.cloudinary.com/hksqkdlah/image/upload/4811_sfs-wintervegetablesoup-316239.jpg",
-  //   },
-  // ];
-
   const cards = useLoaderData();
 
-  console.log(
-    cards.forEach((e) => {
-      console.log(e);
-    })
-  );
-
   const category = useParams().category;
-  const categoryList = [
-    /* list of categories for url */
-  ];
 
   const [fCards, setFCards] = useState(cards);
   const searchRef = useRef();
@@ -100,7 +28,7 @@ function FoodMenu() {
   const [searchQuery, setSearchQuery] = useState({
     query: "",
   });
-
+  console.log(cards);
   const handleSearch = (cardObj, queryObj, priceObj) => {
     if (
       cardObj.name
@@ -114,19 +42,6 @@ function FoodMenu() {
       return false;
     }
   };
-
-  // const fetchFood = async () => {
-  //   try {
-  //     const produits = await produitService.getAllProduits()
-  //     console.log(produits)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetchFood()
-  // }, [])
 
   useEffect(() => {
     searchRef.current.addEventListener("keyup", (e) => {

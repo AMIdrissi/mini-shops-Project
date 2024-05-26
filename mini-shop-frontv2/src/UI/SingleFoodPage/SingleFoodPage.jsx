@@ -27,7 +27,7 @@ function SingleFoodPage() {
       </div>
       <div className="grid grid-cols-2 my-10 ml-4 ">
         <div className="flex justify-center items-center">
-          <PicsGallery />
+          <PicsGallery picsLinks={idProd[0].images} />
         </div>
         <ProductInfo product={idProd[0]} />
       </div>
@@ -44,7 +44,7 @@ function SingleFoodPage() {
           ))}
         </div>
       </div>
-      <UserRating />
+      <UserRating userRatings={idProd[0].notations}/>
     </div>
   );
 }

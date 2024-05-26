@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Cart from "../icons/Cart";
 import LoadedCart from "../icons/LoadedCart";
+import cartService from "../../services/CartService";
 
 function PanierButton() {
+  console.log(cartService.getCart());
   return (
     <div className="flex justify-center ">
       <motion.button

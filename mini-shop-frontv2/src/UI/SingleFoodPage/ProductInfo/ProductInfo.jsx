@@ -8,15 +8,18 @@ function ProductInfo({ product, numOfRatings, rating }) {
         {product.name ? product.name : "PRODUCT NAME"}
       </h1>
       <div>
-        <p className="bg-slate-200/40 mb-4 px-4 text-[22px] rounded-xl p-2 inline font-customFont">
+        <p className="bg-slate-200/40 mr-2 mb-4 px-4 text-[22px] rounded-xl p-2 inline font-customFont">
           Category : {product.category ? product.category : "----"}
+        </p>
+        <p className="bg-slate-200/40 ml-2 px-4 text-[22px] rounded-xl p-2 inline font-customFont">
+          Brand : {product.category ? product.category : "----"}
         </p>
       </div>
       <div className="my-4 ">
         <GlobalRating
-          rating={rating ? rating : 100}
+          rating={rating ? rating : 0}
           numReviewVis={true}
-          numReviews={numOfRatings ? numOfRatings : 0}
+          numReviews={product.notations.length}
         />
       </div>
       <div className=" mb-4 font-customFont text-3xl font-bold ml-[6px] rounded-lg ">
@@ -40,12 +43,12 @@ function ProductInfo({ product, numOfRatings, rating }) {
           </p>
         )}
       </div>
-      <div className="ml-[6px]">
-        <h1 className="text-2xl font-customFont mr-4 font-semibold">
+      <div className="ml-[6px] mt-5">
+        <h1 className="text-3xl font-customFont mr-4 font-semibold">
           Description
         </h1>
-        <p className="text-xl my-6 font-customFont mr-10">
-          {product.desc}
+        <p className="text-2xl text-center my-6 font-customFont mr-10">
+          {product.description}
         </p>
       </div>
       <div className="my-10">

@@ -13,35 +13,10 @@ import TopPart from "./TopPart"
 import HeartIcon from "../icons/Heart"
 import FoodCard from "../MenuPage/FoodCard"
 import NavbarGeneric from "../Navbar/NavbarGeneric"
+import { useLoaderData } from "react-router"
 
 function ProfilPage() {
-  const cards = [
-    {
-      id: 1,
-      name: "Pizza Family",
-      category: "salty",
-      price: 70,
-      promotion: "20% off",
-      image: "src/UI/icons/pizza.jpg",
-    },
-    {
-      id: 2,
-      name: "Burger",
-      category: "salty",
-      price: 50,
-      promotion: "10% off",
-      image: "src/UI/icons/recette-burger-maison.jpg",
-    },
-    {
-      id: 3,
-      name: "Sushi",
-      category: "salty",
-      price: 100,
-      promotion: "Free drink",
-      image: "src/UI/icons/sushi.avif",
-    },
-  ]
-
+  const cards = useLoaderData();
   return (
     <>
       <div className={"h-[600px] overflow-x-hidden"}>
@@ -130,7 +105,7 @@ function ProfilPage() {
         </div>
         <div className="flex overflow-y-auto shadow-xl shadow-slate-600/30 py-4 px-2 mx-[26px] rounded-tr-3xl rounded-tl-3xl items-center">
           {cards.map((card) => (
-            <FoodCard card={card} key={card.id} isCategoryVis={true} />
+            Math.random() >= 0.41 && <FoodCard card={card} key={card.id} isCategoryVis={true} /> 
           ))}
         </div>
       </div>

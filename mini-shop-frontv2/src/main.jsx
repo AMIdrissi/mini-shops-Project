@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     path: "/profil",
     element: <ProfilPage />,
     loader: async () => {
-      return await fetch("URL");
+      return await produitService.getAllProduits();
     },
   },
   {
