@@ -4,7 +4,7 @@ class CartService {
   produitEndpoint = "/cart";
 
   async getCart() {
-    return await HttpClient.get(`${this.produitEndpoint}/`).then(
+    return await HttpClient.get(`${this.produitEndpoint}`).then(
       (response) => response.data
     );
   }

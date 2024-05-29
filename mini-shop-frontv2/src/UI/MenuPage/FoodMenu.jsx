@@ -16,7 +16,6 @@ function FoodMenu() {
   const cards = useLoaderData();
 
   const category = useParams().category;
-
   const [fCards, setFCards] = useState(cards);
   const searchRef = useRef();
   const maxPRef = useRef();

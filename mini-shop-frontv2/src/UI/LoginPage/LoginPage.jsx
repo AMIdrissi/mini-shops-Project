@@ -16,7 +16,7 @@ function LoginPage() {
       <div className="h-full w-full  backdrop-blur-2xl bg-white/10 flex items-center flex-col">
         <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between self-end">
           <div className="w-full h-full flex justify-end">
-            <NavbarGeneric />
+            <NavbarGeneric isLoginPage={true} isMenuPage={true}/>
           </div>
         </div>
 

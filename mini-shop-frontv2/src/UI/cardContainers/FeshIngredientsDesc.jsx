@@ -1,7 +1,7 @@
 // i didn't know what to name it
 
+import { Link } from "react-router-dom";
 import NButton from "../buttons/NavBarButton";
-
 
 function FID({ whenInView }) {
   return (
@@ -16,7 +16,7 @@ function FID({ whenInView }) {
       <h1 className="text-white font-customFont font-bold text-2xl mb-8">
         Check out our menu here{" "}
       </h1>
-      <NButton name={"Menu"} />
+      <NButton name={<Link to={"/menu"}>Menu</Link>} />
     </div>
   );
 }

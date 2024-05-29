@@ -5,7 +5,7 @@ import LoadedCart from "../icons/LoadedCart";
 import cartService from "../../services/CartService";
 
 function PanierButton() {
-  console.log(cartService.getCart());
+  cartService.getCart().then((cart) => console.log(cart));
   return (
     <div className="flex justify-center ">
       <motion.button

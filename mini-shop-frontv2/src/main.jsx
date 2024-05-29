@@ -22,6 +22,7 @@ import PanierPage from "./UI/panier/panierpage";
 import produitService from "./services/ProduitService";
 import LoginPage from "./UI/LoginPage/LoginPage";
 import Cookies from "js-cookie";
+import cartService from "./services/CartService";
 
 // this is basically the root path tree for the whole website
 const router = createBrowserRouter([

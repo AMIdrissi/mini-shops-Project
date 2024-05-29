@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NButton from "../buttons/NavBarButton";
 import ScooterIcon from "../icons/ScooterIcon";
 import { motion } from "framer-motion";
@@ -37,7 +38,7 @@ function DeliverToYou({ whenInView }) {
         <p className="font-customFont font-medium text-2xl my-2">
           Get all our fresh dishes delivered right to your home
         </p>
-        <NButton name={"Order"} />
+        <NButton name={<Link to={"/menu"}>Order</Link>} />
       </div>
     </div>
   );
