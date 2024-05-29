@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-function NButton({ name, size, onClickFn, isSubmit = false }) {
+function NButton({ xref, name, size, onClickFn, isSubmit = false }) {
   return (
     <div className="flex justify-center min-w-[168px]">
       <motion.button
+        ref={xref}
         type={isSubmit ? "submit" : "button"}
         className={`bg-[#eae7e7] text-red-700 px-6 py-2 font-customFont text-${
           size ? size : "3xl"

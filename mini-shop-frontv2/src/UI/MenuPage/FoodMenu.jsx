@@ -10,6 +10,8 @@ import InputField from "../Inputs/InputField";
 import NavbarGeneric from "../Navbar/NavbarGeneric";
 import { useLoaderData, useParams } from "react-router";
 import produitService from "../../services/ProduitService";
+import { CartContext } from "../../CartContext";
+import cartService from "../../services/CartService";
 
 function FoodMenu() {
   // Define card data
@@ -85,6 +87,15 @@ function FoodMenu() {
     setFCards(filteredCards);
   }, [searchQuery, priceVal]);
 
+  window.scrollTo({ top: 400 });
+
+  // to update the navbar
+  const [isCartEmpty, setIsCartEmpty] = useState(true);
+  useEffect(() => {
+    cartService.getCart().then((cart) => setIsCartEmpty(cart.length === 0));
+  }, [isCartEmpty]);
+  console.log(isCartEmpty);
+
   return (
     <div className="bg-[url('./src/assets/ingredients.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
       <div className={"h-[600px] overflow-x-hidden"}>
@@ -93,12 +104,14 @@ function FoodMenu() {
           <div className="absolute top-0 left-0 bottom-0 w-full z-0 overflow-x-hidden ">
             <TopPart
               imageUrl={
-                "https://i.pinimg.com/originals/4a/63/52/4a6352ce2891b42518b8665532b33c70.gif"
+                "../src/assets/ingredients.jpg"
               }
               scaler={1.05}
             />
           </div>
-          <NavbarGeneric isMenuPage />
+          <CartContext.Provider value={isCartEmpty}>
+            <NavbarGeneric isMenuPage />
+          </CartContext.Provider>
         </div>
         <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Our Delicacies"} />

@@ -8,6 +8,14 @@ class CartService {
       (response) => response.data
     );
   }
+
+  async addToCart(productId, qte) {
+    const response = await HttpClient.post(`${this.produitEndpoint}/add`, {
+      productId: productId,
+      quantity: qte,
+    });
+    return response.data;
+  }
 }
 
 const cartService = new CartService();

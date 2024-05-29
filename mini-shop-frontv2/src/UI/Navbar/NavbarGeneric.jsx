@@ -8,13 +8,13 @@ import PanierButton from "../buttons/PanierButton";
 import LoginThing from "../buttons/Login";
 import Cookies from "js-cookie";
 
-function NavbarGeneric({ isMenuPage, isLoginPage }) {
+function NavbarGeneric({ isMenuPage, isLoginPage, updater }) {
   useEffect(() => {
     console.log("logged in");
   }, [Cookies.get("USER")]);
   return (
     <div className="flex items-center mr-9 z-[1]">
-      {Cookies.get("USER") && <PanierButton />}
+      {Cookies.get("USER") && <PanierButton updater={updater} />}
       <NButton
         name={
           !isMenuPage ? (
