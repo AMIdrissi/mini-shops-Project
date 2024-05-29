@@ -3,15 +3,6 @@ import { motion } from "framer-motion";
 
 function PanierCard({ item }) {
   const foodProduct = item.produit;
-  if (!foodProduct) {
-    foodProduct = {
-      name: "- - - -",
-      description: "- - - -",
-      price: 0,
-      previousPrice: 0,
-      image: "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
-    };
-  }
 
   // const [quantity, setQuantity] = useState(1);
 

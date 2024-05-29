@@ -2,6 +2,7 @@ import { useState } from "react";
 import NButton from "../../buttons/NavBarButton";
 import GlobalRating from "../starRating/GlobalRating";
 import cartService from "../../../services/CartService";
+import HeartIcon from "../../icons/Heart";
 
 function ProductInfo({ addToCartRef, product, numOfRatings, rating }) {
   const [quantity, setQuantity] = useState(1);
@@ -20,9 +21,14 @@ function ProductInfo({ addToCartRef, product, numOfRatings, rating }) {
 
   return (
     <div className="mr-[15%] flex flex-col">
-      <h1 className="font-customFont text-6xl font-semibold mb-8 mt-6">
-        {product.name ? product.name : "PRODUCT NAME"}
-      </h1>
+      <div className="flex">
+        <h1 className="font-customFont text-6xl font-semibold mb-8 mt-6">
+          {product.name ? product.name : "PRODUCT NAME"}
+        </h1>
+        <button className="px-5">
+          <HeartIcon hw={50} fillColor={"#ff0506"} />
+        </button>
+      </div>
       <div>
         <p className="bg-slate-200/40 mr-2 mb-4 px-4 text-[22px] rounded-xl p-2 inline font-customFont">
           Category : {product.category ? product.category : "----"}
@@ -89,7 +95,7 @@ function ProductInfo({ addToCartRef, product, numOfRatings, rating }) {
           {product.description}
         </p>
       </div>
-      <div className="my-10">
+      <div className="my-10 flex justify-center">
         <NButton
           name={"Add to cart"}
           size={"4xl"}

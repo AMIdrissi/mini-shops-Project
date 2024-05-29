@@ -27,7 +27,7 @@ function PanierPage() {
       <div className="mt-20 h-screen flex-1 w-full">
         {" "}
         {/* Scrollable container with custom scrollbar */}
-        <div className="space-y-8 overflow-y-scroll scrollbar-custom max-h-[550px]">
+        <div className="space-y-8 overflow-y-scroll scrollbar-custom max-h-[650px]">
           {" "}
           {/* Spacing between cards */}
           {items.length > 0 ? (
