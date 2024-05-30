@@ -149,7 +149,7 @@ function ProductManagerPage() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-x-16 gap-y-4 mt-4 flex-grow">
+            <div className="grid grid-cols-2 gap-x-16 gap-y-4 mt-4 flex-grow mx-32">
               <motion.div
                 className={`bg-white/80 relative p-2  rounded-2xl shadow-xl shadow-red-700/25 transition-all duration-300 border-2 border-white font-customFont min-w-[270px] mx-5 my-4`}
                 initial="initS"

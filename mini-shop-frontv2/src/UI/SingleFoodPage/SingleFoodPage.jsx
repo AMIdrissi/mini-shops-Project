@@ -47,12 +47,15 @@ function SingleFoodPage() {
 
       <div className="mx-36 mb-16">
         <h1 className="text-4xl font-customFont font-semibold my-7">
-          Recommeded for you
+          Recommended for you
         </h1>
         <div className="flex overflow-y-auto py-4 px-2 mx-[26px] rounded-tr-3xl rounded-tl-3xl items-center">
-          {cards.map((card) => (
-            <FoodCard card={card} key={card.id} isCategoryVis={true} />
-          ))}
+          {cards.map(
+            (card) =>
+              card.category === idProd[0].category && (
+                <FoodCard card={card} key={card.id} isCategoryVis={true} />
+              )
+          )}
         </div>
       </div>
       <UserRating userRatings={idProd[0].notations} />

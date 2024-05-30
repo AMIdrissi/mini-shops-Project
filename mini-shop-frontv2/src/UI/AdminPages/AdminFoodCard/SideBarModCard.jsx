@@ -184,25 +184,29 @@ function SideBarModCard({ product, creatorMod, setCreatorMod }) {
           <h1></h1>
         </div>
         <div className="p-1 grid grid-cols-3">
-          <h1>{"Quatity"}</h1>
+          <h1>{"Quantity"}</h1>
           <InputField
             inRef={quantityRef}
-            placeHolder={"Quatity"}
+            placeHolder={"Quantity"}
             size={"2xl"}
             withLabel={false}
           />
           <h1></h1>
         </div>
-        <div className="p-1 grid grid-cols-3">
-          <h1>{"Discount%"}</h1>
-          <InputField
-            inRef={discountRef}
-            placeHolder={"Discount%"}
-            size={"2xl"}
-            withLabel={false}
-          />
-          <h1></h1>
-        </div>
+        {creatorMod ? (
+          <div ref={discountRef}></div>
+        ) : (
+          <div className="p-1 grid grid-cols-3">
+            <h1>{"Discount%"}</h1>
+            <InputField
+              inRef={discountRef}
+              placeHolder={"Discount%"}
+              size={"2xl"}
+              withLabel={false}
+            />
+            <h1></h1>
+          </div>
+        )}
         <div className="p-1 grid grid-cols-3">
           <h1>{"Brand"}</h1>
           <InputField
@@ -246,92 +250,90 @@ function SideBarModCard({ product, creatorMod, setCreatorMod }) {
           />
         </div>
       </div>
-      {(images.length > 0 ||
-        creatorMod) && (
-          <div className="flex justify-around my-2">
-            <motion.button
-              className={`bg-red-800 text-white px-6 py-2 font-customFont text-2xl rounded-3xl m-2 flex items-center `}
-              whileHover={{
-                boxShadow: "0px 0px 10px rgb(185 ,28 ,28)",
-                backgroundColor: "rgb(220 ,38 ,38)",
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 1 }}
-              transition={{
-                delay: 0,
-                duration: 0.2,
-                type: "tween",
-                damping: 20,
-              }}
-              onClick={() => {
-                creatorMod && setCreatorMod(false);
-              }}
-            >
-              Cancel{" "}
-              <span className="pl-2 font-extrabold text-3xl">{" X "}</span>
-            </motion.button>
-            <motion.button
-              className={`bg-green-800 text-white px-6 py-2 font-customFont text-2xl rounded-3xl m-2 flex items-center `}
-              whileHover={{
-                boxShadow: "0px 0px 10px rgb(22 ,163 ,74)",
-                backgroundColor: "rgb(22 ,163 ,74)",
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 1 }}
-              transition={{
-                delay: 0,
-                duration: 0.2,
-                type: "tween",
-                damping: 20,
-              }}
-              onClick={() => {
-                creatorMod
-                  ? produitService
-                      .addProduct(
-                        nameRef.current.value,
-                        categoryRef.current.value,
-                        priceRef.current.value,
-                        brandRef.current.value,
-                        descRef.current.value,
-                        quantityRef.current.value
-                      )
-                      .then((response) => {
-                        console.log(response.status);
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      })
-                  : produitService
-                      .updateProduct(
-                        idRef.current.value,
-                        nameRef.current.value,
-                        categoryRef.current.value,
-                        priceRef.current.value,
-                        brandRef.current.value,
-                        descRef.current.value,
-                        quantityRef.current.value
-                      )
-                      .then((response) => {
-                        console.log(response.status);
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      });
-              }}
-            >
-              {creatorMod ? "Add" : "Confirme"}
-              <span className="pl-2 font-extrabold text-3xl">{" ✔ "}</span>
-            </motion.button>
-          </div>
-        )}
+      {(images.length > 0 || creatorMod) && (
+        <div className="flex justify-around my-2">
+          <motion.button
+            className={`bg-red-800 text-white px-6 py-2 font-customFont text-2xl rounded-3xl m-2 flex items-center `}
+            whileHover={{
+              boxShadow: "0px 0px 10px rgb(185 ,28 ,28)",
+              backgroundColor: "rgb(220 ,38 ,38)",
+              scale: 1.05,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            initial={{ translateY: -100, opacity: 0 }}
+            animate={{ translateY: 0, opacity: 1 }}
+            transition={{
+              delay: 0,
+              duration: 0.2,
+              type: "tween",
+              damping: 20,
+            }}
+            onClick={() => {
+              creatorMod && setCreatorMod(false);
+            }}
+          >
+            Cancel <span className="pl-2 font-extrabold text-3xl">{" X "}</span>
+          </motion.button>
+          <motion.button
+            className={`bg-green-800 text-white px-6 py-2 font-customFont text-2xl rounded-3xl m-2 flex items-center `}
+            whileHover={{
+              boxShadow: "0px 0px 10px rgb(22 ,163 ,74)",
+              backgroundColor: "rgb(22 ,163 ,74)",
+              scale: 1.05,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            initial={{ translateY: -100, opacity: 0 }}
+            animate={{ translateY: 0, opacity: 1 }}
+            transition={{
+              delay: 0,
+              duration: 0.2,
+              type: "tween",
+              damping: 20,
+            }}
+            onClick={() => {
+              creatorMod
+                ? produitService
+                    .addProduct(
+                      nameRef.current.value,
+                      categoryRef.current.value,
+                      priceRef.current.value,
+                      brandRef.current.value,
+                      descRef.current.value,
+                      quantityRef.current.value
+                    )
+                    .then((response) => {
+                      console.log(response.status);
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    })
+                : produitService
+                    .updateProduct(
+                      idRef.current.value,
+                      nameRef.current.value,
+                      categoryRef.current.value,
+                      priceRef.current.value,
+                      brandRef.current.value,
+                      descRef.current.value,
+                      quantityRef.current.value
+                    )
+                    .then((response) => {
+                      console.log(response.status);
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+            }}
+          >
+            {creatorMod ? "Add" : "Confirme"}
+            <span className="pl-2 font-extrabold text-3xl">{" ✔ "}</span>
+          </motion.button>
+        </div>
+      )}
     </div>
   );
 }

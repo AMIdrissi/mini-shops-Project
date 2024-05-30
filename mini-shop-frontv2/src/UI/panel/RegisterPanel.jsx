@@ -10,7 +10,9 @@ function RegisterPanel({ whenInViewReg }) {
       opacity: whenInViewReg ? 1 : 0,
       transform: whenInViewReg
         ? "translateX(0px)"
-        : (positive ? "translateX(100px)" : "translateX(-100px)"),
+        : positive
+        ? "translateX(100px)"
+        : "translateX(-100px)",
     };
   };
   return (
@@ -25,35 +27,29 @@ function RegisterPanel({ whenInViewReg }) {
             type="text"
             required
             placeholder="Full Name"
-            style={inputStyleFunction(0.1,true)}
-          />
-          <motion.input
-            className={inputStyle}
-            type="text"
-            required
-            placeholder="CIN"
-            style={inputStyleFunction(0.2,false)}
+            style={inputStyleFunction(0.1, true)}
           />
           <motion.input
             className={inputStyle}
             type="email"
             required
             placeholder="Email"
-            style={inputStyleFunction(0.3,true)}
-          />
-          <motion.input
-            className={inputStyle}
-            type="tel"
-            required
-            placeholder="Phone number"
-            style={inputStyleFunction(0.4,false)}
+            style={inputStyleFunction(0.3, true)}
           />
           <motion.input
             className={inputStyle}
             type="text"
             required
+            placeholder="Password"
+            style={inputStyleFunction(0.2, false)}
+          />
+          <motion.textarea
+            className={inputStyle}
+            type="text"
+            required
             placeholder="Address"
-            style={inputStyleFunction(0.5,true)}
+            style={inputStyleFunction(0.5, true)}
+            rows={5}
           />
         </div>
         <div
@@ -64,7 +60,9 @@ function RegisterPanel({ whenInViewReg }) {
             transform: whenInViewReg ? "translateX(0px)" : "translateY(-100px)",
           }}
         >
-          <NButton name={"Register"} />
+          <NButton name={"Register"} onClickFn={() => {
+            
+          }} />
         </div>
       </div>
     </div>

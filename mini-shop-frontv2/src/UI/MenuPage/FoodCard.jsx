@@ -95,8 +95,12 @@ function FoodCard({ card, isCategoryVis }) {
             Category: {card.category}
           </p>
         )}
-        <p className="bg-slate-200/40 ml-2 px-4 text-[20px] rounded-xl p-2 inline font-customFont">
+        <p className="bg-slate-200/40 ml-2 px-4 text-[18px] rounded-xl p-2 inline font-customFont ">
           Brand : {card.brand ? card.brand : "----"}
+        </p>
+
+        <p className="bg-slate-200/40 mb-4 px-4 text-lg rounded-xl py-1 mt-4">
+          Category: {card.category}
         </p>
 
         {/* <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
