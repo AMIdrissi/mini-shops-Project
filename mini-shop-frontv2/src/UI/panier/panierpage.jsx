@@ -3,6 +3,7 @@ import NavbarGeneric from "../Navbar/NavbarGeneric"; // Import NavbarGeneric
 import PanierCard from "./PanierCard"; // Import PanierCard
 import cartService from "../../services/CartService";
 import { motion } from "framer-motion";
+import NButton from "../buttons/NavBarButton";
 
 function PanierPage() {
   const [items, setItems] = useState([]);
@@ -31,9 +32,11 @@ function PanierPage() {
           {" "}
           {/* Spacing between cards */}
           {items.length > 0 ? (
-            items.map((item) => {
-              return <PanierCard item={item} />;
-            })
+            <div>
+              {items.map((item) => {
+                return <PanierCard item={item} />;
+              })}
+            </div>
           ) : (
             <div>
               <div className="flex justify-center">
@@ -170,6 +173,7 @@ function PanierPage() {
             </div>
           )}
         </div>
+        {items.length > 0 && <NButton name={"Commander"} size={"3xl"} />}
       </div>
     </div>
   );

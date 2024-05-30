@@ -23,6 +23,7 @@ import produitService from "./services/ProduitService";
 import LoginPage from "./UI/LoginPage/LoginPage";
 import Cookies from "js-cookie";
 import cartService from "./services/CartService";
+import ProductManagerPage from "./UI/AdminPages/ProductManagerPager";
 
 // this is basically the root path tree for the whole website
 const router = createBrowserRouter([
@@ -65,6 +66,13 @@ const router = createBrowserRouter([
   {
     path: "/panier",
     element: <PanierPage />,
+  },
+  {
+    path: "/admin/menu",
+    element: <ProductManagerPage />,
+    loader: async ({}) => {
+      return await produitService.getAllProduits();
+    },
   },
 ]);
 
