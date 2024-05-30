@@ -23,6 +23,18 @@ class ProduitService {
     const response = await HttpClient.get(`adminOnly/update/${id}`);
     return response.data;
   }
+
+  async addProduct(name, category, price, brand, description, quantity) {
+    const response = await HttpClient.get(`adminOnly/new`, {
+      name: name,
+      category: category,
+      price: price,
+      brand: brand,
+      description: description,
+      quantity: quantity,
+    });
+    return response.data;
+  }
 }
 
 const produitService = new ProduitService();

@@ -32,7 +32,7 @@ const foodContainerAn = {
   },
 };
 
-function AdminMangerFoodCard({ card, setCard }) {
+function AdminMangerFoodCard({ card, setCard, creatorMod, setCreatorMod }) {
   return (
     <motion.div
       key={card.id}
@@ -127,6 +127,7 @@ function AdminMangerFoodCard({ card, setCard }) {
             }}
             onClick={() => {
               setCard(card);
+              creatorMod && setCreatorMod(false);
             }}
           >
             Modify{" "}
