@@ -36,7 +36,7 @@ function SideBarModCard({ product, creatorMod, setCreatorMod }) {
         {images.length > 0
           ? !showUrlInput && (
               <motion.button
-                className={`bg-gray-400 text-white px-[14px] py-[3px] font-bold font-customFont text-3xl rounded-xl mb-10 mx-3 flex items-center `}
+                className={`bg-gray-400 text-white px-[14px] py-[3px] font-bold font-customFont text-3xl rounded-xl mx-3 flex items-center `}
                 whileHover={{
                   boxShadow: "0px 0px 10px rgb(126 ,133, 145)",
                   backgroundColor: "rgb(126 ,133, 145)",
@@ -246,8 +246,8 @@ function SideBarModCard({ product, creatorMod, setCreatorMod }) {
           />
         </div>
       </div>
-      {images.length > 0 ||
-        (creatorMod && (
+      {(images.length > 0 ||
+        creatorMod) && (
           <div className="flex justify-around my-2">
             <motion.button
               className={`bg-red-800 text-white px-6 py-2 font-customFont text-2xl rounded-3xl m-2 flex items-center `}
@@ -331,7 +331,7 @@ function SideBarModCard({ product, creatorMod, setCreatorMod }) {
               <span className="pl-2 font-extrabold text-3xl">{" ✔ "}</span>
             </motion.button>
           </div>
-        ))}
+        )}
     </div>
   );
 }

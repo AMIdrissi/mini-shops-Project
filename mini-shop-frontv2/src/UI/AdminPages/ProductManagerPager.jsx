@@ -8,6 +8,7 @@ import FoodCard from "../MenuPage/FoodCard";
 import AdminMangerFoodCard from "./AdminFoodCard/AdminMangerFoodCard";
 import SideBarModCard from "./AdminFoodCard/SideBarModCard";
 import { motion } from "framer-motion";
+import Cookies from "js-cookie"
 
 function ProductManagerPage() {
   // animation
@@ -194,6 +195,7 @@ function ProductManagerPage() {
                   />
                 )
               )}
+              {console.log(Cookies.get("USER") )}
             </div>
           </div>
         </div>
