@@ -8,6 +8,7 @@ import ProductInfo from "./ProductInfo/ProductInfo";
 import UserRating from "./UserRatings/UserRarings";
 import GlobalRating from "./starRating/GlobalRating";
 import StarRating from "./starRating/StarRating";
+import { useEffect, useRef, useState } from "react";
 
 // not as single as i am , get it get it ? :) :| :( [that was an awful joke]
 
@@ -18,33 +19,46 @@ function SingleFoodPage() {
   // this is where the fetch with the api should take place
   const idProd = cards.filter((prod) => Number(prod.id) === Number(id));
   window.scrollTo({ top: 0 });
+
+  const [updateCart, setUpdateCart] = useState(false);
+  const refToCartBtn = useRef();
+  useEffect(() => {
+    refToCartBtn.current?.addEventListener("click", () => {
+      setUpdateCart(!updateCart);
+    });
+  }, [updateCart]);
+
   return (
     <div>
       <div className="flex h-20 font-customFont font-[500] text-[18px] justify-between items-center bg-[url('https://i.pinimg.com/originals/4a/63/52/4a6352ce2891b42518b8665532b33c70.gif')] bg-center bg-no-repeat bg-cover ">
         <div className="backdrop-blur-2xl bg-white/40 w-full h-full flex justify-end">
-          <NavbarGeneric />
+          <NavbarGeneric updater={refToCartBtn} />
         </div>
       </div>
       <div className="grid grid-cols-2 my-10 ml-4 ">
         <div className="flex justify-center items-center">
-          <PicsGallery />
+          <PicsGallery picsLinks={idProd[0].images} />
         </div>
-        <ProductInfo product={idProd[0]} />
+        <ProductInfo product={idProd[0]} addToCartRef={refToCartBtn} />
       </div>
       <div className="flex justify-center ">
         <StarRating size={"50px"} />
       </div>
+
       <div className="mx-36 mb-16">
         <h1 className="text-4xl font-customFont font-semibold my-7">
-          Recommeded for you
+          Recommended for you
         </h1>
         <div className="flex overflow-y-auto py-4 px-2 mx-[26px] rounded-tr-3xl rounded-tl-3xl items-center">
-          {cards.map((card) => (
-            <FoodCard card={card} key={card.id} isCategoryVis={true} />
-          ))}
+          {cards.map(
+            (card) =>
+              card.category === idProd[0].category && (
+                <FoodCard card={card} key={card.id} isCategoryVis={true} />
+              )
+          )}
         </div>
       </div>
-      <UserRating />
+      <UserRating userRatings={idProd[0].notations} />
     </div>
   );
 }

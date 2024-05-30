@@ -9,6 +9,11 @@ import RegisterPanel from "../panel/RegisterPanel";
 import DeliverToYou from "../panel/DeliverToYou";
 
 function MainPage() {
+  useEffect(() => {
+    document.querySelector("#root").style.height = "auto";
+    document.querySelector("body").style.height = "auto";
+  }, []);
+
   const ref = useRef(null);
   const whenInViewF = useInView(ref, {
     amount: 0.2,

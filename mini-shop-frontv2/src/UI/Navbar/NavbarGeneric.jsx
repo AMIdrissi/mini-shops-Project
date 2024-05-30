@@ -1,16 +1,20 @@
 // src/components/navbars/NavbarGeneric.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonForMenu from "../buttons/ButtonForMenu";
 import NButton from "../buttons/NavBarButton";
-import PanierButton from "../buttons/PanierButton";  
+import PanierButton from "../buttons/PanierButton";
 import LoginThing from "../buttons/Login";
+import Cookies from "js-cookie";
 
-function NavbarGeneric({ isMenuPage }) {
+function NavbarGeneric({ isMenuPage, isLoginPage, updater }) {
+  useEffect(() => {
+    console.log("logged in");
+  }, [Cookies.get("USER")]);
   return (
     <div className="flex items-center mr-9 z-[1]">
-      <PanierButton /> 
+      {Cookies.get("USER") && <PanierButton updater={updater} />}
       <NButton
         name={
           !isMenuPage ? (
@@ -20,8 +24,8 @@ function NavbarGeneric({ isMenuPage }) {
           )
         }
       />
-      <ButtonForMenu name={"categories"} /> 
-      <LoginThing />
+      <ButtonForMenu name={"categories"} />
+      {!isLoginPage && <LoginThing />}
     </div>
   );
 }

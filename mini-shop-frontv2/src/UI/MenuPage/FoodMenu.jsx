@@ -10,85 +10,14 @@ import InputField from "../Inputs/InputField";
 import NavbarGeneric from "../Navbar/NavbarGeneric";
 import { useLoaderData, useParams } from "react-router";
 import produitService from "../../services/ProduitService";
+import { CartContext } from "../../CartContext";
+import cartService from "../../services/CartService";
 
 function FoodMenu() {
   // Define card data
-  // const cards = [
-  //   {
-  //     id: 1,
-  //     name: "Pizza Family",
-  //     image:
-  //       "https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Sushi Deluxe",
-  //     image:
-  //       "https://www.cookwithmanali.com/wp-content/uploads/2021/04/Vegan-Sushi-500x500.jpg",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Tacos Fiesta",
-  //     image:
-  //       "https://www.allrecipes.com/thmb/4AbbUJe3vFzftNyAwCXW2nhDbjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5281437-a5d6b201a7274183b1501b41c04e4b0f.jpg",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Burgers Classic",
-  //     image:
-  //       "https://lacuisineensemble.fr/wp-content/uploads/2022/02/recette-burger-maison-500x500.jpg",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Salad Fresh",
-  //     image:
-  //       "https://www.refreshmyhealth.com/wp-content/uploads/2020/07/how-to-make-a-simple-salad-recipe-vegan-gluten-free-lunch_260-main_img_6804-lrcc.jpg",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Wings Spicy",
-  //     image:
-  //       "https://savorwithjennifer.com/wp-content/uploads/2022/06/Extra-Crispy-Sweet-and-Spicy-Wings-on-the-Grill-1-2.jpg",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Sandwich Club",
-  //     image:
-  //       "https://tornadoughalli.com/wp-content/uploads/2022/05/CLUB-SANDWICH-RECIPE-3-2.jpg",
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Fries Golden",
-  //     image:
-  //       "https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800",
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Desserts Creamy",
-  //     image:
-  //       "https://www.tasteofhome.com/wp-content/uploads/0001/01/Fried-Ice-Cream-Dessert-Bars-_EXPS_SDJJ19_232652_B02_06_1b_rms.jpg",
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Soup Hearty",
-  //     image:
-  //       "https://res.cloudinary.com/hksqkdlah/image/upload/4811_sfs-wintervegetablesoup-316239.jpg",
-  //   },
-  // ];
-
   const cards = useLoaderData();
 
-  console.log(
-    cards.forEach((e) => {
-      console.log(e);
-    })
-  );
-
   const category = useParams().category;
-  const categoryList = [
-    /* list of categories for url */
-  ];
-
   const [fCards, setFCards] = useState(cards);
   const searchRef = useRef();
   const maxPRef = useRef();
@@ -100,7 +29,7 @@ function FoodMenu() {
   const [searchQuery, setSearchQuery] = useState({
     query: "",
   });
-
+  console.log(cards);
   const handleSearch = (cardObj, queryObj, priceObj) => {
     if (
       cardObj.name
@@ -114,19 +43,6 @@ function FoodMenu() {
       return false;
     }
   };
-
-  // const fetchFood = async () => {
-  //   try {
-  //     const produits = await produitService.getAllProduits()
-  //     console.log(produits)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetchFood()
-  // }, [])
 
   useEffect(() => {
     searchRef.current.addEventListener("keyup", (e) => {
@@ -171,6 +87,15 @@ function FoodMenu() {
     setFCards(filteredCards);
   }, [searchQuery, priceVal]);
 
+  window.scrollTo({ top: 400 });
+
+  // to update the navbar
+  const [isCartEmpty, setIsCartEmpty] = useState(true);
+  useEffect(() => {
+    cartService.getCart().then((cart) => setIsCartEmpty(cart.length === 0));
+  }, [isCartEmpty]);
+  console.log(isCartEmpty);
+
   return (
     <div className="bg-[url('./src/assets/ingredients.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
       <div className={"h-[600px] overflow-x-hidden"}>
@@ -179,12 +104,14 @@ function FoodMenu() {
           <div className="absolute top-0 left-0 bottom-0 w-full z-0 overflow-x-hidden ">
             <TopPart
               imageUrl={
-                "https://i.pinimg.com/originals/4a/63/52/4a6352ce2891b42518b8665532b33c70.gif"
+                "../src/assets/ingredients.jpg"
               }
               scaler={1.05}
             />
           </div>
-          <NavbarGeneric isMenuPage />
+          <CartContext.Provider value={isCartEmpty}>
+            <NavbarGeneric isMenuPage />
+          </CartContext.Provider>
         </div>
         <div className="mt-[18%]  scale-125 flex justify-center overflow-y-hidden">
           <UserName userName={"Our Delicacies"} />

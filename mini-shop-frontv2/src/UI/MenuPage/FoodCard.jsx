@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import NButton from "../buttons/NavBarButton";
 import { Link } from "react-router-dom";
+import cartService from "../../services/CartService";
 
 // animation variants
+
 const foodCircleAn = {
   initS: { scale: 0 },
   rest: { scale: 1, rotate: 0 },
@@ -43,9 +45,9 @@ function FoodCard({ card, isCategoryVis }) {
     >
       <div className="flex justify-center items-center mb-4">
         <Link to={`/menu/product/${card.id}`}>
-          {card.image ? (
+          {card.images[0].url ? (
             <motion.img
-              src={card.image}
+              src={card.images[0].url}
               alt={card.name}
               className="h-48 w-48 rounded-full object-cover cursor-pointer"
               variants={foodCircleAn}
@@ -85,17 +87,25 @@ function FoodCard({ card, isCategoryVis }) {
       <div className="flex flex-col items-center">
         <h2 className="font-semibold mb-2 text-2xl">{card.name}</h2>
         <p className="text-gray-600 mb-2">Price: {card.price}DH</p>
-        <p className="text-green-500 mb-4">Promotion: {card.promotion}</p>
+        <p className="text-green-500 mb-4">
+          {card.promotion ? `Promotion: ${card.promotion}%` : ""}
+        </p>
         {isCategoryVis && (
           <p className="bg-slate-200/40 mb-4 px-4 text-lg rounded-xl py-1">
             Category: {card.category}
           </p>
         )}
+        <p className="bg-slate-200/40 ml-2 px-4 text-[18px] rounded-xl p-2 inline font-customFont ">
+          Brand : {card.brand ? card.brand : "----"}
+        </p>
+
+        <p className="bg-slate-200/40 mb-4 px-4 text-lg rounded-xl py-1 mt-4">
+          Category: {card.category}
+        </p>
 
         {/* <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
           Add to Cart
         </button> */}
-        <NButton name={"Add to cart"} size={"xl"} />
       </div>
     </motion.div>
   );

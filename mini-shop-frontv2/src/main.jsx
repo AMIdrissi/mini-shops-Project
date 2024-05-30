@@ -20,6 +20,10 @@ import FoodCard from "./UI/MenuPage/FoodCard";
 import PanierCard from "./UI/panier/PanierCard";
 import PanierPage from "./UI/panier/panierpage";
 import produitService from "./services/ProduitService";
+import LoginPage from "./UI/LoginPage/LoginPage";
+import Cookies from "js-cookie";
+import cartService from "./services/CartService";
+import ProductManagerPage from "./UI/AdminPages/ProductManagerPager";
 
 // this is basically the root path tree for the whole website
 const router = createBrowserRouter([
@@ -31,7 +35,7 @@ const router = createBrowserRouter([
     path: "/profil",
     element: <ProfilPage />,
     loader: async () => {
-      return await fetch("URL");
+      return await produitService.getAllProduits();
     },
   },
   {
@@ -57,17 +61,26 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginCard />,
+    element: <LoginPage />,
   },
   {
     path: "/panier",
     element: <PanierPage />,
   },
+  {
+    path: "/admin/menu",
+    element: <ProductManagerPage />,
+    loader: async ({}) => {
+      return await produitService.getAllProduits();
+    },
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserContext.Provider value={{ isConnected: true }}>
+    <UserContext.Provider
+      value={{ isConnected: Cookies.get("USER") ? true : false }}
+    >
       {/* <ProfilPage /> */}
       {/* <FoodMenu /> */}
       {/* <MainPage/> */}

@@ -2,8 +2,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Cart from "../icons/Cart";
 import LoadedCart from "../icons/LoadedCart";
+import cartService from "../../services/CartService";
+import { useEffect, useState } from "react";
+import { useCartContext } from "../../CartContext";
 
-function PanierButton() {
+function PanierButton({ updater }) {
+  const [isCartEmpty, setIsCartEmpty] = useState(true);
+
+  useEffect(() => {
+    cartService.getCart().then((cart) => setIsCartEmpty(cart.length === 0));
+  }, [updater]);
+
   return (
     <div className="flex justify-center ">
       <motion.button
@@ -30,7 +39,7 @@ function PanierButton() {
         <Link to="/panier">
           {" "}
           {/* Update to navigate to /panier */}
-          <LoadedCart />
+          {isCartEmpty ? <Cart /> : <LoadedCart />}
           {/* Panier icon */}
         </Link>
       </motion.button>
