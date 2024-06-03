@@ -1,4 +1,4 @@
-FROM node:20.5.0
+FROM node:20.6.0
 RUN apt-get update \ 
 && apt-get -y upgrade
 # RUN apt install -y git
