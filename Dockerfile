@@ -7,4 +7,4 @@ WORKDIR /mini-shops-Project/mini-shop-frontv2
 
 EXPOSE 5173
 
-CMD ["npm","install","&&","npm","run","dev"]
+CMD ["npm","install","&&","npm","run","dev","--host"]
